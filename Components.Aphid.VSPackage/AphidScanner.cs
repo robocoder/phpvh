@@ -54,7 +54,12 @@ namespace Components.Aphid.VSPackage
                 case AphidTokenType.nullKeyword:
                 case AphidTokenType.retKeyword:
                 case AphidTokenType.thisKeyword:
-                case AphidTokenType.trueKeyword: 
+                case AphidTokenType.trueKeyword:
+
+                case AphidTokenType.functionOperator:
+                case AphidTokenType.LoadLibraryOperator:
+                case AphidTokenType.LoadScriptOperator:
+
                     tokenInfo.Type = TokenType.Keyword;
                     tokenInfo.Color = TokenColor.Keyword;
                     break;
@@ -71,16 +76,13 @@ namespace Components.Aphid.VSPackage
                 case AphidTokenType.DivisionEqualOperator:
                 case AphidTokenType.DivisionOperator:
                 case AphidTokenType.EqualityOperator:
-                case AphidTokenType.ExistsOperator:
-                case AphidTokenType.functionOperator:
+                case AphidTokenType.ExistsOperator:                
                 case AphidTokenType.GreaterThanOperator:
                 case AphidTokenType.GreaterThanOrEqualOperator:
                 case AphidTokenType.IncrementOperator:
                 case AphidTokenType.JoinOperator:
                 case AphidTokenType.LessThanOperator:
-                case AphidTokenType.LessThanOrEqualOperator:
-                case AphidTokenType.LoadLibraryOperator:
-                case AphidTokenType.LoadScriptOperator:
+                case AphidTokenType.LessThanOrEqualOperator:                
                 case AphidTokenType.MinusEqualOperator:
                 case AphidTokenType.MinusOperator:
                 case AphidTokenType.ModulusEqualOperator:

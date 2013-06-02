@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.Package;
+﻿using Components.Aphid.Interpreter;
+using Components.Aphid.Lexer;
+using Components.Aphid.Parser;
+using Microsoft.VisualStudio.Package;
+using Microsoft.VisualStudio.TextManager.Interop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,31 +11,6 @@ using System.Threading.Tasks;
 
 namespace Components.Aphid.VSPackage
 {
-    public class AphidAuthoringScope : AuthoringScope
-    {
-        public override string GetDataTipText(int line, int col, out Microsoft.VisualStudio.TextManager.Interop.TextSpan span)
-        {
-            span = new Microsoft.VisualStudio.TextManager.Interop.TextSpan();
-            return null;
-        }
-
-        public override Declarations GetDeclarations(Microsoft.VisualStudio.TextManager.Interop.IVsTextView view, int line, int col, TokenInfo info, ParseReason reason)
-        {
-            return null;
-        }
-
-        public override Methods GetMethods(int line, int col, string name)
-        {
-            return null;
-        }
-
-        public override string Goto(Microsoft.VisualStudio.VSConstants.VSStd97CmdID cmd, Microsoft.VisualStudio.TextManager.Interop.IVsTextView textView, int line, int col, out Microsoft.VisualStudio.TextManager.Interop.TextSpan span)
-        {
-            span = new Microsoft.VisualStudio.TextManager.Interop.TextSpan();
-
-            return null;
-        }
-    }
 
 
     public class AphidLanguageService : LanguageService
@@ -45,15 +24,18 @@ namespace Components.Aphid.VSPackage
         {
             return new LanguagePreferences()
             {
-                //EnableCodeSense = true,
-                //AutoListMembers = true,
+                EnableCodeSense = true,
+                CodeSenseDelay = 500,
+                AutoListMembers = true,
                 EnableFormatSelection = true,
-                //EnableMatchBraces = true,
-                //IndentSize = 4,
+                EnableMatchBraces = true,                
                 LineNumbers = true,
                 EnableCommenting = true,
-                //EnableShowMatchingBrace = true,
+                EnableShowMatchingBrace = true,
                 IndentStyle = IndentingStyle.Smart,
+                EnableQuickInfo = true,
+                MaxErrorMessages = 100,
+
             };
         }
 
@@ -64,8 +46,32 @@ namespace Components.Aphid.VSPackage
 
         public override string Name
         {
-            get { 
-                return "Aphid Language Service"; }
+            get { return "Aphid Language Service"; }
+        }
+
+        private void CheckParseRequest(ParseRequest req)
+        {
+            try
+            {
+                var lexer = new AphidLexer(req.Text);
+                var parser = new AphidParser(lexer.GetTokens());
+                parser.Parse();
+            }
+            catch (AphidParserException e)
+            {
+                var lineCol = TokenHelper.GetLineCol(req.Text, e.Token.Index);
+                var span = new TextSpan()
+                {
+                    iStartLine = lineCol.Item1,
+                    iEndLine = lineCol.Item1,
+                    iStartIndex = lineCol.Item2,
+                    iEndIndex = lineCol.Item2 + (e.Token.Lexeme != null ? e.Token.Lexeme.Length : 0)
+                };
+
+                var msg = string.Format("Unexpected {0}: {1}", e.Token.TokenType.ToString(), e.Token.Lexeme);
+
+                req.Sink.AddError(req.FileName, msg, span, Severity.Error);
+            }
         }
 
         public override AuthoringScope ParseSource(ParseRequest req)
@@ -76,7 +82,10 @@ namespace Components.Aphid.VSPackage
                     break;
 
                 case ParseReason.HighlightBraces:
-                    
+                    break;
+
+                case ParseReason.Check:
+                    CheckParseRequest(req);
                     break;
 
                 default:

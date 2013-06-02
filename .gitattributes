@@ -43,7 +43,9 @@ Components.Aphid.Tests.Integration/PropertyTests.cs -text
 Components.Aphid.Tests.Integration/QueryTests.cs -text
 Components.Aphid.Tests.Integration/ScopeTests.cs -text
 Components.Aphid.Tests.Integration/StringTests.cs -text
+Components.Aphid.VSPackage/AphidAuthoringScope.cs -text
 Components.Aphid.VSPackage/AphidLanguageService.cs -text
+Components.Aphid.VSPackage/AphidPackage.cs -text
 Components.Aphid.VSPackage/AphidPackagePackage.cs -text
 Components.Aphid.VSPackage/AphidScanner.cs -text
 Components.Aphid.VSPackage/Components.Aphid.VSPackage.csproj -text
@@ -55,7 +57,7 @@ Components.Aphid.VSPackage/Properties/AssemblyInfo.cs -text
 Components.Aphid.VSPackage/Resources.Designer.cs -text
 Components.Aphid.VSPackage/Resources.resx -text
 Components.Aphid.VSPackage/Resources/Package.ico -text svneol=unset#unset
-Components.Aphid.VSPackage/TestPackage.cs -text
+Components.Aphid.VSPackage/TokenHelper.cs -text
 Components.Aphid.VSPackage/VSPackage.resx -text
 Components.Aphid.VSPackage/source.extension.vsixmanifest -text
 Components.Aphid/App.config -text

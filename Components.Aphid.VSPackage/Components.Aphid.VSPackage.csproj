@@ -139,6 +139,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AphidAuthoringScope.cs" />
     <Compile Include="AphidLanguageService.cs" />
     <Compile Include="AphidScanner.cs" />
     <Compile Include="Guids.cs" />
@@ -148,9 +149,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="AphidPackagePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestPackage.cs" />
+    <Compile Include="AphidPackage.cs" />
+    <Compile Include="TokenHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
