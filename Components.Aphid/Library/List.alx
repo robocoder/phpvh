@@ -1,0 +1,97 @@
+﻿__initList = @(l) {
+    
+    l.add = @(item) { 
+        __list.add(l, item);
+        ret l;
+    };    
+
+    l.insert = @(index, item) { 
+        __list.insert(l, index, item);
+        ret l;
+    };
+
+    l.iter = @(action) for (x in l) action(x);;
+
+    l.contains = @(item) __list.contains(l, item);
+
+    l.map = @(mapping) { 
+        x = [];
+        for (y in l) __list.add(x, mapping(y));
+        ret x;
+    };   
+
+    l.filter = @(predicate) { 
+        x = [];
+        for (y in l) if (predicate(y)) __list.add(x, y);
+        ret x;
+    };
+
+    l.first = @(predicate) for (x in l) if (predicate(x)) ret x;;
+
+    l.collect = @(fan) {
+        x = [];
+        for (y in l) for (z in fan(y)) x.add(z);
+        ret x;
+    };
+
+    l.distinct = @() {
+        x = [];
+        for (y in l) if (!__list.contains(x, y)) x.add(y);
+        ret x;
+    };
+
+    l.count = @() __list.count(l);
+
+    l.any = @(predicate) {
+        if (predicate?) {
+            for (x in l) if (predicate(x)) ret true;
+            ret false;
+        }
+        else {
+             ret __list.count(l) != 0;
+        }
+    };
+
+    l.all = @(predicate) {
+        for (x in l) if (!predicate(x)) ret false;
+        ret true;
+    };
+
+    l.concat = @(second) {
+        x = [];
+        for (y in l) x.add(y);
+        for (y in second) x.add(y);
+        ret x;
+    };
+
+    l.skip = @(count) {
+        x = []; i = 0;
+        for (y in l) {
+            if (i >= count) x.add(y);
+            i++;
+        }
+        ret x;
+    };
+
+    l.take = @(count) {
+        x = []; i = 0;
+        for (y in l) {
+            if (i < count) x.add(y);
+            i++;
+        }
+        ret x;
+    };
+
+    l.aggr = @(acc) {
+        if (l.count() == 1) ret l[0];
+        else {
+            s = l[0];
+            for (x in l.skip(1)) s = acc(s, x);
+            ret s;
+        }
+    };
+
+    l.addAll = @() l.aggr(@(x, y)x + y);
+
+    ret l;
+};

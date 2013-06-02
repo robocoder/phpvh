@@ -1,0 +1,11 @@
+﻿#'Std';
+
+probeName = 'PHPVHProbe';
+prefixes = [ '', '|', '||', '&', '\r\n' ];
+suffixes = [ '', chr(0) ];
+
+ret {
+    probeName: probeName,
+    testCases: prefixes.collect(@(x)suffixes.map(@(y)x+probeName+y)),
+    functions: [ 'system', 'exec', 'shell_exec', 'passthru' ]
+};

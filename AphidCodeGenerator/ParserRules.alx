@@ -1,0 +1,52 @@
+﻿ret  {
+    binOpExps:  [ 
+        {
+            name: "AssignmentExpression",
+            operand: "PipelineExpression",
+            operators: [ "AssignmentOperator" ]
+        }, {
+            name: "PipelineExpression",
+            operand: "LogicalExpression",
+            operators: [ "PipelineOperator" ]
+        }, {
+            name: "LogicalExpression",
+            operand: "ComparisonExpression",
+            operators: [ "AndOperator", "OrOperator" ]
+        }, {
+            name: "ComparisonExpression",
+            operand: "PostfixUnaryOperationExpression",
+            operators:  [ 
+                "EqualityOperator", 
+                "NotEqualOperator", 
+                "LessThanOperator", 
+                "LessThanOrEqualOperator", 
+                "GreaterThanOperator", 
+                "GreaterThanOrEqualOperator"
+            ]
+        }, {
+            name: "BinaryOrExpression",
+            operand: "XorExpression",
+            operators: [ "BinaryOrOperator" ],
+        }, {
+            name: "XorExpression",
+            operand: "BinaryAndExpression",
+            operators: [ "XorOperator" ],
+        }, {
+            name: "BinaryAndExpression",
+            operand: "ShiftExpression",
+            operators: [ "BinaryAndOperator" ],
+        }, {
+            name: "ShiftExpression",
+            operand: "AdditionExpression",
+            operators: [ "ShiftLeft", "ShiftRight" ],
+        }, {
+            name: "AdditionExpression",
+            operand: "Term",
+            operators: [ "AdditionOperator", "MinusOperator" ]
+        }, {
+            name: "Term",
+            operand: "PrefixUnaryOperatorExpression",
+            operators: [ "MultiplicationOperator", "DivisionOperator", "ModulusOperator" ]
+        }
+    ]
+};

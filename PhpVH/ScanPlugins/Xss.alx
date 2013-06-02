@@ -1,0 +1,6 @@
+﻿ret [
+    '<ScRiPt>alert(0)</ScRiPt>',
+    '<ScR<script>iPt>alert(0)</ScR<script>iPt>',
+    '"OnMoUsEoVeR="alert(0)',
+    '"OnBlUr="alert(0)'
+];

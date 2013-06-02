@@ -1,0 +1,53 @@
+﻿<Window x:Class="PHPVHReportViewer.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:php="clr-namespace:PhpVH;assembly=phpvh"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:views="clr-namespace:PHPVHReportViewer.Views"
+    Title="Vulnerability Report Viewer" 
+    Style="{StaticResource WindowStyle}">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Click="OpenFile_Click" />
+                <MenuItem Header="Exit" Click="Exit_Click" />
+            </MenuItem>
+        </Menu>
+
+        <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedRootTab}">
+            <!--                  -->
+            <!-- Dynamic analysis -->
+            <!--                  -->
+            <TabItem Header="Dynamic Analysis" 
+                     Visibility="{Binding DynamicAnalysisVisibility}">
+                <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedTab}">
+                    <TabItem Header="Vulnerabilities" 
+                             Visibility="{Binding VulnerabilityTabVisibility}">
+                        <views:DynamicAnalysisVulnerabilityViewerControl />                        
+                    </TabItem>
+                    <TabItem Header="Scan Details"
+                             Visibility="{Binding InputMapVisibility}">
+                        <views:DynamicAnalysisDetailsControl />                        
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <!--                        -->
+            <!-- Static Analysis Tab    -->
+            <TabItem Header="Static Analysis"
+                     Visibility="{Binding StaticAnalysisVisibility}">
+                <views:StaticAnalysisResultsControl />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

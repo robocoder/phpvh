@@ -1,0 +1,10 @@
+﻿__initString = @(s) {
+    s.chars = @() __string.getChars(s);
+    s.split = @(separator) __string.split(s, separator);
+    s.isMatch = @(pattern) __string.isMatch(s, pattern);
+    s.length = @() __string.length(s);
+    s.remove = @(index) __string.remove(s, index);
+    s.substring = @(index, length) __string.substring(s, index, length);
+    s.startsWith = @(value) __string.startsWith(s, value);
+    s.endsWith = @(value) __string.endsWith(s, value);
+};

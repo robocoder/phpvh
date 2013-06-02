@@ -1,0 +1,19 @@
+﻿#'Std';
+
+slashes = [ '\\', '/' ];
+dotLens = [ 2, 6 ];
+travSeqLens = [ 8, 32 ];
+exts = [ 'jpg' ];
+probe = 'lfi_test.txt';
+
+travSeqs = dotLens
+    .collect(@(x)slashes
+        .map(@(y)'.'*x+y)
+        .collect(@(x)travSeqLens.map(@(y)x*y+probe)));
+
+if (exts? && exts.any()) 
+    travSeqs = travSeqs
+        .collect(@(x)exts.map(@(y)x+chr(0)+'.'+y))
+        .concat(travSeqs);
+
+ret travSeqs.distinct();

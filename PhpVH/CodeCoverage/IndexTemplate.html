@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        h1 {{
+			padding: 0;
+			margin: 0px 0px 0px 5px;
+		}}
+
+        #fileList {{
+			margin: 0;
+            padding: 0;
+			position:fixed; 
+			top: 5px;
+			bottom: 5px;
+			left: 5px;			
+            width: 310px;            
+			overflow-y: auto;
+			overflow-x: auto;     
+			border: 2px gray solid;	
+        }}
+
+        #viewer {{
+			margin: 0;
+            padding: 0;                        
+			position:fixed; 
+			left:323px; 			
+			right:5px;
+			top:5px; 
+			bottom: 5px;			
+			border: 2px gray solid;		
+        }}
+
+        #viewer iframe {{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+			display: block;			
+        }}
+    </style>
+    <title>Code Coverage Comments</title>
+</head>
+
+<script type="text/javascript">
+    var setViewerPage = function (page) {{
+        document.getElementById('viewerFrame').src = page;
+    }}
+</script>
+
+<body style="background: white; font-family: Helvetica">
+    <div id="browser">
+        <div id="fileList">
+            <h1>Files</h1>
+            {0}
+        </div>
+    </div>
+    <div id="viewer">
+        <iframe id="viewerFrame" frameborder="0"></iframe>
+    </div>
+</body>
+
+</html>
+
+

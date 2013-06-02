@@ -1,0 +1,8 @@
+﻿<Window x:Class="PHPVHGUI.Guide"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="PHP Vulnerability Hunter Guide">
+    <Grid>
+        <Frame Source="pack://siteoforigin:,,,/PHP Vulnerability Hunter Guide.htm" />
+    </Grid>
+</Window>

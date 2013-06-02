@@ -1,0 +1,3 @@
+case '{{Char}}':
+    {{States}}
+    {{Body}}

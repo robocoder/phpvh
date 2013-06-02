@@ -1,0 +1,54 @@
+﻿#'Std';
+
+settingsTestMsgs = @(name, settings) [
+    sprintf("{0} test failed. Check the {1} settings.", name, settings),
+    null,
+    sprintf("{0} test passed.", name),
+];
+
+hostTestMsgs = @(name) settingsTestMsgs(name, "host and and port");
+rootTestMsgs = @(name) settingsTestMsgs(name, "webroot");
+
+phpvhTestMsgs = @(name) [
+    sprintf("{0} of the tests passed. This generally means there was a configuration issue. Ensure the webroot is properly set.", name),
+    sprintf("{0} of the tests passed. This generally means there are compatibility issues with the version of PHP used.", name),
+    sprintf("All {0} tests passed.", name),
+];
+
+ret [
+    {
+        asm: "PhpVH.Tests.Integration.dll",
+        tests: [
+            { 
+                name: "Connectivity", 
+                arg: "/include:Connectivity", 
+                msgs: hostTestMsgs("Connectivity"),
+            }, { 
+                name: "HTTP", 
+                arg: "/include:HttpConnectivity", 
+                msgs: hostTestMsgs("HTTP"),
+                required: [ "Connectivity" ],
+            }, { 
+                name: "Webroot", 
+                arg: "/include:Webroot", 
+                msgs: rootTestMsgs("Webroot"),
+            }, { 
+                name: "PHP", 
+                arg: "/include:PhpTest", 
+                msgs: rootTestMsgs("PHP"),
+                required: [ "Connectivity", "Webroot", ],
+            }, { 
+                name: "Vulnerability scanner", 
+                arg: "/include:VulnerabilityScanner", 
+                msgs: phpvhTestMsgs("Vulnerability Scanner"),
+                required: [ "Connectivity", "Webroot", "PHP", ],
+            }, { 
+                name: "Code coverage", 
+                arg: "/include:CodeCoverage", 
+                msgs: phpvhTestMsgs("Code Coverage"),
+                required: [ "Connectivity", "Webroot", "PHP", ],
+            },
+
+        ],
+    },
+];

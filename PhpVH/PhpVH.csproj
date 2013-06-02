@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B19AE3EC-D09D-41AC-A082-008EF36BF0FA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhpVH</RootNamespace>
+    <AssemblyName>PhpVH</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRules>-Microsoft.Design#CA1012;-Microsoft.Design#CA2210;-Microsoft.Design#CA1040;-Microsoft.Design#CA1005;-Microsoft.Design#CA1020;-Microsoft.Design#CA1021;-Microsoft.Design#CA1010;-Microsoft.Design#CA1011;-Microsoft.Design#CA1009;-Microsoft.Design#CA1050;-Microsoft.Design#CA1026;-Microsoft.Design#CA1019;-Microsoft.Design#CA1031;-Microsoft.Design#CA1047;-Microsoft.Design#CA1000;-Microsoft.Design#CA1048;-Microsoft.Design#CA1051;-Microsoft.Design#CA1002;-Microsoft.Design#CA1061;-Microsoft.Design#CA1006;-Microsoft.Design#CA1046;-Microsoft.Design#CA1045;-Microsoft.Design#CA1065;-Microsoft.Design#CA1038;-Microsoft.Design#CA1008;-Microsoft.Design#CA1028;-Microsoft.Design#CA1064;-Microsoft.Design#CA1004;-Microsoft.Design#CA1035;-Microsoft.Design#CA1063;-Microsoft.Design#CA1032;-Microsoft.Design#CA1023;-Microsoft.Design#CA1033;-Microsoft.Design#CA1039;-Microsoft.Design#CA1016;-Microsoft.Design#CA1014;-Microsoft.Design#CA1017;-Microsoft.Design#CA1018;-Microsoft.Design#CA1027;-Microsoft.Design#CA1059;-Microsoft.Design#CA1060;-Microsoft.Design#CA1034;-Microsoft.Design#CA1013;-Microsoft.Design#CA1036;-Microsoft.Design#CA1044;-Microsoft.Design#CA1041;-Microsoft.Design#CA1025;-Microsoft.Design#CA1052;-Microsoft.Design#CA1053;-Microsoft.Design#CA1057;-Microsoft.Design#CA1058;-Microsoft.Design#CA1001;-Microsoft.Design#CA1049;-Microsoft.Design#CA1054;-Microsoft.Design#CA1056;-Microsoft.Design#CA1055;-Microsoft.Design#CA1030;-Microsoft.Design#CA1003;-Microsoft.Design#CA1007;-Microsoft.Design#CA1043;-Microsoft.Design#CA1024;-Microsoft.Globalization#CA1301;-Microsoft.Globalization#CA1302;-Microsoft.Globalization#CA1308;-Microsoft.Globalization#CA1306;-Microsoft.Globalization#CA1304;-Microsoft.Globalization#CA1305;-Microsoft.Globalization#CA2101;-Microsoft.Globalization#CA1300;-Microsoft.Globalization#CA1307;-Microsoft.Globalization#CA1309;-Microsoft.Interoperability#CA1403;-Microsoft.Interoperability#CA1406;-Microsoft.Interoperability#CA1413;-Microsoft.Interoperability#CA1402;-Microsoft.Interoperability#CA1407;-Microsoft.Interoperability#CA1404;-Microsoft.Interoperability#CA1410;-Microsoft.Interoperability#CA1411;-Microsoft.Interoperability#CA1405;-Microsoft.Interoperability#CA1409;-Microsoft.Interoperability#CA1415;-Microsoft.Interoperability#CA1408;-Microsoft.Interoperability#CA1414;-Microsoft.Interoperability#CA1412;-Microsoft.Interoperability#CA1400;-Microsoft.Interoperability#CA1401;-Microsoft.Mobility#CA1600;-Microsoft.Mobility#CA1601;-Microsoft.Naming#CA1702;-Microsoft.Naming#CA1700;-Microsoft.Naming#CA1712;-Microsoft.Naming#CA1713;-Microsoft.Naming#CA1714;-Microsoft.Naming#CA1709;-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1708;-Microsoft.Naming#CA1715;-Microsoft.Naming#CA1710;-Microsoft.Naming#CA1720;-Microsoft.Naming#CA1707;-Microsoft.Naming#CA1722;-Microsoft.Naming#CA1711;-Microsoft.Naming#CA1716;-Microsoft.Naming#CA1717;-Microsoft.Naming#CA1725;-Microsoft.Naming#CA1719;-Microsoft.Naming#CA1721;-Microsoft.Naming#CA1701;-Microsoft.Naming#CA1703;-Microsoft.Naming#CA1724;-Microsoft.Naming#CA1726;-Microsoft.Portability#CA1903;-Microsoft.Portability#CA1901;-Microsoft.Portability#CA1900;-Microsoft.Security#CA2116;-Microsoft.Security#CA2117;-Microsoft.Security#CA2105;-Microsoft.Security#CA2115;-Microsoft.Security#CA2102;-Microsoft.Security#CA2104;-Microsoft.Security#CA2122;-Microsoft.Security#CA2114;-Microsoft.Security#CA2123;-Microsoft.Security#CA2111;-Microsoft.Security#CA2108;-Microsoft.Security#CA2107;-Microsoft.Security#CA2103;-Microsoft.Security#CA2118;-Microsoft.Security#CA2109;-Microsoft.Security#CA2119;-Microsoft.Security#CA2106;-Microsoft.Security#CA2112;-Microsoft.Security#CA2120;-Microsoft.Security#CA2121;-Microsoft.Security#CA2126;-Microsoft.Security#CA2124;-Microsoft.Security#CA2127;-Microsoft.Security#CA2128;-Microsoft.Security#CA2129</CodeAnalysisRules>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationMapPage.cs" />
+    <Compile Include="CodeAnalysis\BooleanExpressionAnalyzer.cs" />
+    <Compile Include="CodeAnalysis\Expression.cs" />
+    <Compile Include="CodeAnalysis\ExpressionWalker.cs" />
+    <Compile Include="CodeAnalysis\PageSuperGlobalValueTable.cs" />
+    <Compile Include="CodeAnalysis\SuperGlobalNameValuePair.cs" />
+    <Compile Include="CodeAnalysis\SuperGlobalValueList.cs" />
+    <Compile Include="CodeAnalysis\SuperGlobalValueCollector.cs" />
+    <Compile Include="CodeAnalysis\SuperGlobalValueTable.cs" />
+    <Compile Include="CodeAnalysis\SwitchStatementAnalyzer.cs" />
+    <Compile Include="CodeCoverage\Annotation.cs" />
+    <Compile Include="CodeCoverage\AnnotationFileReader.cs" />
+    <Compile Include="CodeCoverage\AnnotationList.cs" />
+    <Compile Include="CodeCoverage\AnnotationTable.cs" />
+    <Compile Include="CodeCoverage\Annotator.cs" />
+    <Compile Include="CodeCoverage\CodeCoverageCalculator.cs" />
+    <Compile Include="CodeCoverage\CodePage.cs" />
+    <Compile Include="CodeCoverage\CodePageTable.cs" />
+    <Compile Include="CodeCoverage\CoverageCommenter.cs" />
+    <Compile Include="CodeCoverage\IFileReader.cs" />
+    <Compile Include="CodeCoverage\PluginAnnotationTable.cs" />
+    <Compile Include="DelimiterOptions.cs" />
+    <Compile Include="CodeAnalysis\ExpressionAnalyzer.cs" />
+    <Compile Include="FormScraper.cs" />
+    <Compile Include="FormTag.cs" />
+    <Compile Include="FunctionCall.cs" />
+    <Compile Include="HtmlTag.cs" />
+    <Compile Include="InputTag.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="ExeProbe.cs" />
+    <Compile Include="PhpResource.cs" />
+    <Compile Include="PhpVersionTester.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestBuilder.cs" />
+    <Compile Include="ScanPlugins\ScriptableScanPluginBase.cs" />
+    <Compile Include="ScriptLauncher.cs" />
+    <Compile Include="UriScraperModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationMap.cs" />
+    <Compile Include="ScanAlertOptions.cs" />
+    <Compile Include="ScanPlugins\IEnumerableSqlFunctionExtension.cs" />
+    <Compile Include="ScanPlugins\SqlFunction.cs" />
+    <Compile Include="StringSanitizer.cs" />
+    <Compile Include="BodyChunk.cs" />
+    <Compile Include="CodeCoverage\CodeCoverageTable.cs" />
+    <Compile Include="ReportFile.cs" />
+    <Compile Include="ScanPlugins\ArbitraryPhpScanConfig.cs" />
+    <Compile Include="ScanPlugins\CommandScanConfig.cs" />
+    <Compile Include="ScanPlugins\ConfigurableScanPluginBase.cs" />
+    <Compile Include="ScanPlugins\PluginConfig.cs" />
+    <Compile Include="ScanPlugins\SqlScanConfig.cs" />
+    <Compile Include="StaticAnalysis\ArbitraryUploadPlugin.cs" />
+    <Compile Include="StaticAnalysis\CommandInjectionPlugin2.cs" />
+    <Compile Include="StaticAnalysis\CommandInjectionPlugin.cs" />
+    <Compile Include="StaticAnalysis\ExtractPlugin.cs" />
+    <Compile Include="StaticAnalysis\InsecureCallPlugin.cs" />
+    <Compile Include="StaticAnalysis\LfiPlugin.cs" />
+    <Compile Include="StaticAnalysis\OpenRedirectPlugin.cs" />
+    <Compile Include="StaticAnalysis\PhpInjectionPlugin.cs" />
+    <Compile Include="StaticAnalysis\SqlInjectionPlugin.cs" />
+    <Compile Include="StaticAnalysis\StaticAnalysisAlert.cs" />
+    <Compile Include="StaticAnalysis\StaticAnalysisEngine.cs" />
+    <Compile Include="StaticAnalysis\StaticAnalysisFileAlertCollection.cs" />
+    <Compile Include="StaticAnalysis\StaticAnalysisFileAlerts.cs" />
+    <Compile Include="StaticAnalysis\StaticAnalysisPlugin.cs" />
+    <Compile Include="ScanPlugins\XssScanConfig.cs" />
+    <Compile Include="StaticAnalysis\XssScanPlugin.cs" />
+    <Compile Include="Delimiters.cs" />
+    <Compile Include="DiscoveryReport.cs" />
+    <Compile Include="FileIncludeTable.cs" />
+    <Compile Include="FileTrace.cs" />
+    <Compile Include="TracedFunctionCall.cs" />
+    <Compile Include="Hook.cs" />
+    <Compile Include="HookCollection.cs" />
+    <Compile Include="HttpResponse.cs" />
+    <Compile Include="HttpResponseReader.cs" />
+    <Compile Include="Jpeg.cs" />
+    <Compile Include="LexicalAnalysis\Lexer.cs" />
+    <Compile Include="MessageDumper.cs" />
+    <Compile Include="MimeTypes.cs" />
+    <Compile Include="PageFieldTable.cs" />
+    <Compile Include="Php.cs" />
+    <Compile Include="PhpParser.cs" />
+    <Compile Include="ReportWriter.cs" />
+    <Compile Include="ScanAlertCollection.cs" />
+    <Compile Include="ScanPlugins\ArbitraryPhpScanPlugin.cs" />
+    <Compile Include="ScanPlugins\DynamicScanPlugin.cs" />
+    <Compile Include="ScanPlugins\FileScanPlugin.cs" />
+    <Compile Include="ScanPlugins\CommandScanPlugin.cs" />
+    <Compile Include="ScanPlugins\FileScanMode.cs" />
+    <Compile Include="ScanPlugins\FullPathDisclosureScanPlugin.cs" />
+    <Compile Include="ScanPlugins\OpenRedirectScanPlugin.cs" />
+    <Compile Include="ScanPlugins\ResponseSplittingPlugin.cs" />
+    <Compile Include="ScanPlugins\ScanPluginBase.cs" />
+    <Compile Include="ScanPlugins\LocalFileInclusionScanPlugin.cs" />
+    <Compile Include="ScanPlugins\SqlScanPlugin.cs" />
+    <Compile Include="ScanConfig.cs" />
+    <Compile Include="ScanMetrics.cs" />
+    <Compile Include="StaticAnalyzer.cs" />
+    <Compile Include="StringParser.cs" />
+    <Compile Include="PreloadHelper.cs" />
+    <Compile Include="TraceTable.cs" />
+    <Compile Include="ScannerCli.cs" />
+    <Compile Include="ScanAlert.cs" />
+    <Compile Include="ScanPlugins\XssScanPlugin.cs" />
+    <Compile Include="UriScraper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Doc\Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ScanPlugins\Command.alx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ScanPlugins\LocalFileInclusion.alx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ScanPlugins\Xss.alx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\config.rb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCore.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreDefault.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreDjango.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreEclipse.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreEmacs.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreFadeToGrey.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreMDUltra.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreMidnight.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shCoreRDark.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeDefault.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeDjango.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeEclipse.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeEmacs.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeFadeToGrey.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeMDUltra.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeMidnight.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\shThemeRDark.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\compass\_theme_template.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SyntaxHighlighter\MIT-LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhpResources\VersionProbe.php">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScanPlugins\ArbitraryPhpScanPlugin.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScanPlugins\SqlScanPlugin.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components.Aphid\Components.Aphid.csproj">
+      <Project>{4249db75-bbb6-4cc4-b046-3170dd1d3bc1}</Project>
+      <Name>Components.Aphid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Components.ConsolePlus\Components.ConsolePlus.csproj">
+      <Project>{fbc88ddf-02cf-4d6b-9438-e7d186536898}</Project>
+      <Name>Components.ConsolePlus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Components\Components.csproj">
+      <Project>{4938604e-7501-4b8a-870d-50887883e38b}</Project>
+      <Name>Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PHPVHProbe\PhpVHProbe.csproj">
+      <Project>{863B0909-FF1E-4A58-823E-CEE04B2A03FF}</Project>
+      <Name>PhpVHProbe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhpResources\Annotation.php">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhpResources\DynamicProbes.php">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhpResources\PhpApiOverrides.php">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhpResources\SuperGlobalOverride.php">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Todo.txt" />
+    <None Include="CodeCoverage\CoveragePageTemplate.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="CodeCoverage\IndexTemplate.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="SyntaxHighlighter\scripts\shAutoloader.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushAppleScript.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushAS3.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushBash.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushColdFusion.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushCpp.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushCSharp.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushCss.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushDelphi.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushDiff.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushErlang.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushGroovy.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushJava.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushJavaFX.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushJScript.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushPerl.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushPhp.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushPlain.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushPowerShell.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushPython.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushRuby.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushSass.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushScala.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushSql.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushVb.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shBrushXml.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shCore.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\scripts\shLegacy.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\src\shAutoloader.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\src\shCore.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\src\shLegacy.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCore.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreDefault.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreDjango.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreEclipse.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreEmacs.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreFadeToGrey.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreMDUltra.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreMidnight.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shCoreRDark.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeDefault.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeDjango.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeEclipse.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeEmacs.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeFadeToGrey.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeMDUltra.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeMidnight.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SyntaxHighlighter\styles\shThemeRDark.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<ArbitraryPhpScanConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FuzzString>&lt;?php echo 'testabc'.'testxyz'; ?&gt;</FuzzString>
+  <FuzzString>echo 'testabc'.'testxyz';</FuzzString>
+  <FuzzString>&lt;?php echo "testabc"."testxyz"; ?&gt;</FuzzString>
+  <FuzzString>echo "testabc"."testxyz";</FuzzString>
+  <FalsePositiveRegex>echo.{0,2}testabctestxyz</FalsePositiveRegex>
+  <MatchRegex>testabctestxyz</MatchRegex>
+</ArbitraryPhpScanConfig>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0"?>
+<SqlScanConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <!-- Fuzz Strings -->
+  <FuzzString>'</FuzzString>
+  <FuzzString>\'</FuzzString>
+  <FuzzString>\\'</FuzzString>
+  <FuzzString>\\\'</FuzzString>
+  <FuzzString>"</FuzzString>
+  <FuzzString>\"</FuzzString>
+  <FuzzString>\\"</FuzzString>
+  <FuzzString>\\\"</FuzzString>
+
+  <!-- MySQL -->
+  <SqlFunction Name="mysql_query" ParamCount="1" QueryParam="0" />
+  <SqlFunction Name="mysql_query" ParamCount="2" QueryParam="0" />
+
+  <SqlFunction Name="mysql_unbuffered_query" ParamCount="1" QueryParam="0" />
+  <SqlFunction Name="mysql_unbuffered_query" ParamCount="2" QueryParam="0" />            
+
+  <SqlFunction Name="mysql_select_db" ParamCount="1" QueryParam="0" />
+  <SqlFunction Name="mysql_select_db" ParamCount="2" QueryParam="0" />
+
+  <SqlFunction Name="mysql_drop_db" ParamCount="1" QueryParam="0" />
+  <SqlFunction Name="mysql_drop_db" ParamCount="2" QueryParam="0" />
+
+  <SqlFunction Name="mysql_db_query" ParamCount="2" QueryParam="1" />
+  <SqlFunction Name="mysql_db_query" ParamCount="3" QueryParam="1" />
+
+  <!-- SQLite -->
+  <SqlFunction Name="sqlite_query" ParamCount="2" QueryParam="1" />
+  <SqlFunction Name="sqlite_query" ParamCount="3" QueryParam="1" />
+  <SqlFunction Name="sqlite_query" ParamCount="4" QueryParam="1" />
+
+  <SqlFunction Name="sqlite_exec" ParamCount="2" QueryParam="1" />
+  <SqlFunction Name="sqlite_exec" ParamCount="3" QueryParam="1" />
+
+  <SqlFunction Name="sqlite_array_query" ParamCount="2" QueryParam="1" />
+  <SqlFunction Name="sqlite_array_query" ParamCount="3" QueryParam="1" />
+  <SqlFunction Name="sqlite_array_query" ParamCount="4" QueryParam="1" />
+
+  <SqlFunction Name="sqlite_unbuffered_query" ParamCount="2" QueryParam="1" />
+  <SqlFunction Name="sqlite_unbuffered_query" ParamCount="3" QueryParam="1" />
+  <SqlFunction Name="sqlite_unbuffered_query" ParamCount="4" QueryParam="1" />
+
+</SqlScanConfig>
