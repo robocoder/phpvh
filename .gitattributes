@@ -1,4 +1,10 @@
 * text=auto !eol
+Aphid/Aphid.csproj -text
+Aphid/Aphid.csproj.vspscc -text
+Aphid/App.config -text
+Aphid/HelloWorld.alx -text
+Aphid/Program.cs -text
+Aphid/Properties/AssemblyInfo.cs -text
 AphidCodeGenerator/Aphid.Code.alx -text
 AphidCodeGenerator/Aphid.Tmpl.alx -text
 AphidCodeGenerator/Aphid.alx -text
@@ -197,12 +203,6 @@ LexerTestGenerator/LexerTestGenerator.csproj.vspscc -text
 LexerTestGenerator/Program.cs -text
 LexerTestGenerator/Properties/AssemblyInfo.cs -text
 LexerTestGenerator/Tokens.cs -text
-MicroScript/Aphid.csproj -text
-MicroScript/Aphid.csproj.vspscc -text
-MicroScript/App.config -text
-MicroScript/HelloWorld.alx -text
-MicroScript/Program.cs -text
-MicroScript/Properties/AssemblyInfo.cs -text
 MonoBuildScriptGenerator/App.config -text
 MonoBuildScriptGenerator/BuildScriptGenerator.cs -text
 MonoBuildScriptGenerator/MonoBuildScriptGenerator.csproj -text
