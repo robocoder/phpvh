@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexerTestGenerator", "Lexer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLex", "LLex\LLex.csproj", "{D172AD83-34D8-478D-8875-2D467A28129C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aphid", "MicroScript\Aphid.csproj", "{EFDE894B-FA3D-4202-9A08-C9F69C0B0799}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aphid", "Aphid\Aphid.csproj", "{EFDE894B-FA3D-4202-9A08-C9F69C0B0799}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Aphid.Tests.Integration", "Components.Aphid.Tests.Integration\Components.Aphid.Tests.Integration.csproj", "{B94E7BEF-5277-4BCB-82E1-BA5616EB7E42}"
 EndProject
