@@ -7,7 +7,7 @@
 
     select: @(selector, list) {
         x = [];
-        for (x in list) x |> selector |> x.add;
+        for (y in list) y |> selector |> x.add;
         ret x;
     },
 
