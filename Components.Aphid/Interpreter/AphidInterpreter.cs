@@ -152,18 +152,36 @@ namespace Components.Aphid.Interpreter
         private object InterpetAssignmentExpression(BinaryOperatorExpression expression, bool returnRef = false)
         {
             var value = InterpretExpression(expression.RightOperand);
-            if (expression.LeftOperand is IdentifierExpression)
+            var value2 = value as AphidObject;
+            var idExp = expression.LeftOperand as IdentifierExpression;
+            if (idExp != null)
             {
-                var id = (expression.LeftOperand as IdentifierExpression).Identifier;
-                var destObj = InterpretIdentifierExpression(expression.LeftOperand as IdentifierExpression);
+                var id = idExp.Identifier;
+                var destObj = InterpretIdentifierExpression(idExp);
 
                 if (destObj == null)
                 {
-                    _currentScope.Variables.Add(id, ValueHelper.Wrap(value));
+                    destObj = new AphidObject();
+
+                    _currentScope.Variables.Add(id, destObj);                    
                 }
                 else
                 {
-                    destObj.Value = ValueHelper.Unwrap(value);
+                    destObj.Clear();                    
+                }
+
+                if (value2 != null)
+                {
+                    destObj.Value = value2.Value;
+
+                    foreach (var x in value2)
+                    {
+                        destObj.Add(x.Key, x.Value);
+                    }
+                }
+                else
+                {
+                    destObj.Value = value;
                 }
             }
             else
