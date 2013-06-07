@@ -104,11 +104,11 @@ namespace PhpVH
                 {
                     if (ThrowOnFail)
                     {
-                        ScannerCli.DisplayCriticalMessageAndExit("~Red~No response from server; exiting~R~");
+                        throw new InvalidOperationException("No response from server"); 
                     }
                     else
                     {
-                        throw new InvalidOperationException("No response from server");
+                        ScannerCli.DisplayCriticalMessageAndExit("~Red~No response from server; exiting~R~");
                     }
                 }
                 else
