@@ -145,14 +145,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhpVH.SelfTest\PhpVH.SelfTest.csproj">
-      <Project>{5af61f80-0070-48e9-ba57-b7d6a4531e80}</Project>
-      <Name>PhpVH.SelfTest</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PhpVH.Tests.Integration\PhpVH.Tests.Integration.csproj">
-      <Project>{8ee05764-f512-42c9-9fd5-61f63254889d}</Project>
-      <Name>PhpVH.Tests.Integration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PHPVH\PhpVH.csproj">
       <Project>{B19AE3EC-D09D-41AC-A082-008EF36BF0FA}</Project>
       <Name>PhpVH</Name>
