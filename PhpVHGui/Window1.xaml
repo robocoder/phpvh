@@ -180,7 +180,7 @@
                 <!-- Toolstrip -->
                 <StackPanel Grid.Row="3" Grid.Column="1"  
                             Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                    <Button Content="Test" Click="TestButton_Click" />
+                    <!--<Button Content="Test" Click="TestButton_Click" />-->
                     <Button Content="Repair" Click="RepairButton_Click" />
                     <Button Content="Scan" Click="StartButton_Click" />
                 </StackPanel>                

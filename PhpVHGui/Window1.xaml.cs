@@ -252,6 +252,7 @@ namespace PHPVHGUI
             catch (Win32Exception ex)
             {
                 ShowStartError(ex);
+                IsEnabled = true;
 
                 return;
             }
