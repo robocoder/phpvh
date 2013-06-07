@@ -14,13 +14,13 @@
 
     l.contains = @(item) __list.contains(l, item);
 
-    l.map = @(mapping) { 
+    l.select = @(selector) {
         x = [];
-        for (y in l) __list.add(x, mapping(y));
+        for (y in l) __list.add(x, selector(y));
         ret x;
     };   
 
-    l.filter = @(predicate) { 
+    l.where = @(predicate) { 
         x = [];
         for (y in l) if (predicate(y)) __list.add(x, y);
         ret x;
@@ -28,9 +28,9 @@
 
     l.first = @(predicate) for (x in l) if (predicate(x)) ret x;;
 
-    l.collect = @(fan) {
+    l.selectMany = @(selector) {
         x = [];
-        for (y in l) for (z in fan(y)) x.add(z);
+        for (y in l) for (z in selector(y)) x.add(z);
         ret x;
     };
 
@@ -82,7 +82,7 @@
         ret x;
     };
 
-    l.aggr = @(acc) {
+    l.aggregate = @(acc) {
         if (l.count() == 1) ret l[0];
         else {
             s = l[0];
@@ -92,6 +92,12 @@
     };
 
     l.addAll = @() l.aggr(@(x, y)x + y);
+
+	l.clone = @() {
+		x = [];
+		l.iter(x.add);
+		ret x;
+	};
 
     ret l;
 };
