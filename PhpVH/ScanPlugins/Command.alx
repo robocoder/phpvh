@@ -6,6 +6,6 @@ suffixes = [ '', chr(0) ];
 
 ret {
     probeName: probeName,
-    testCases: prefixes.collect(@(x)suffixes.map(@(y)x+probeName+y)),
+    testCases: prefixes.selectMany(@(x)suffixes.select(@(y)x+probeName+y)),
     functions: [ 'system', 'exec', 'shell_exec', 'passthru' ]
 };
