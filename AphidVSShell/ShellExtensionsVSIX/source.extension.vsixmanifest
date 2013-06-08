@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="4a7b0349-7d67-45bb-b536-cdc15b6216e6" Version="1.0" Language="en-US" Publisher="My Company" />
+    <DisplayName>Shell VSIX manifest</DisplayName>
+    <Description>Core extensions for AphidVSShell</Description>
+  </Metadata>
+  <Installation InstalledByMsi="true" SystemComponent="true">
+    <InstallationTarget Id="AphidVSShell" Version="1.0" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="AphidVSShell.AboutBoxPackage" Path="|AphidVSShell.AboutBoxPackage;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>

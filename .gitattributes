@@ -21,6 +21,56 @@ AphidCodeGenerator/IAphidCodeObject.cs -text
 AphidCodeGenerator/ParserRules.alx -text
 AphidCodeGenerator/Program.cs -text
 AphidCodeGenerator/Properties/AssemblyInfo.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AboutBox.xaml -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AboutBox.xaml.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AphidVSShell.AboutBoxPackage.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AphidVSShell.AboutBoxPackage.csproj -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AphidVSShell.AboutBoxPackage.csproj.vspscc -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/AphidVSShell.AboutBoxPackage.vsct -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/Guids.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/Key.snk -text svneol=unset#unset
+AphidVSShell/AphidVSShell.AboutBoxPackage/PkgCmdID.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/Properties/AssemblyInfo.cs -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/VSPackage.resx -text
+AphidVSShell/AphidVSShell.AboutBoxPackage/source.extension.vsixmanifest -text
+AphidVSShell/AphidVSShell/AphidVSShell.Application.pkgdef -text svneol=unset#unset
+AphidVSShell/AphidVSShell/AphidVSShell.cpp -text svneol=unset#unset
+AphidVSShell/AphidVSShell/AphidVSShell.exe.config -text
+AphidVSShell/AphidVSShell/AphidVSShell.exe.manifest -text
+AphidVSShell/AphidVSShell/AphidVSShell.h -text svneol=unset#unset
+AphidVSShell/AphidVSShell/AphidVSShell.pkgdef -text
+AphidVSShell/AphidVSShell/AphidVSShell.pkgundef -text
+AphidVSShell/AphidVSShell/AphidVSShell.rc -text
+AphidVSShell/AphidVSShell/AphidVSShell.reg -text svneol=unset#unset
+AphidVSShell/AphidVSShell/AphidVSShell.vcxproj -text
+AphidVSShell/AphidVSShell/AphidVSShell.vcxproj.filters -text
+AphidVSShell/AphidVSShell/AphidVSShell.vcxproj.vspscc -text
+AphidVSShell/AphidVSShell/AphidVSShell.winprf -text
+AphidVSShell/AphidVSShell/ApplicationIcon.ico -text svneol=unset#unset
+AphidVSShell/AphidVSShell/DebuggerProxy.dll -text svneol=unset#unset
+AphidVSShell/AphidVSShell/DebuggerProxy.dll.manifest -text
+AphidVSShell/AphidVSShell/Documentation/Images/AppEnv.jpg -text svneol=unset#unset
+AphidVSShell/AphidVSShell/Documentation/ReadMe.htm -text
+AphidVSShell/AphidVSShell/General.vssettings -text
+AphidVSShell/AphidVSShell/Resource.h -text svneol=unset#unset
+AphidVSShell/AphidVSShell/ShellSection.cpp -text
+AphidVSShell/AphidVSShell/ShellSection.h -text
+AphidVSShell/AphidVSShell/Splash.bmp -text svneol=unset#unset
+AphidVSShell/AphidVSShell/VsSDK.props -text
+AphidVSShell/AphidVSShell/small.ico -text svneol=unset#unset
+AphidVSShell/AphidVSShell/stdafx.cpp -text svneol=unset#unset
+AphidVSShell/AphidVSShell/stdafx.h -text svneol=unset#unset
+AphidVSShell/AphidVSShellUI/AphidVSShellUI.cpp -text svneol=unset#unset
+AphidVSShell/AphidVSShellUI/AphidVSShellUI.rc -text
+AphidVSShell/AphidVSShellUI/AphidVSShellUI.vcxproj -text
+AphidVSShell/AphidVSShellUI/AphidVSShellUI.vcxproj.filters -text
+AphidVSShell/AphidVSShellUI/AphidVSShellUI.vcxproj.vspscc -text
+AphidVSShell/AphidVSShellUI/ApplicationCommands.vsct -text
+AphidVSShell/AphidVSShellUI/resource.h -text svneol=unset#unset
+AphidVSShell/ShellExtensionsVSIX/Properties/AssemblyInfo.cs -text
+AphidVSShell/ShellExtensionsVSIX/ShellExtensionsVSIX.csproj -text
+AphidVSShell/ShellExtensionsVSIX/ShellExtensionsVSIX.csproj.vspscc -text
+AphidVSShell/ShellExtensionsVSIX/source.extension.vsixmanifest -text
 Components.Aphid.Net/AphidRequest.cs -text
 Components.Aphid.Net/Components.Aphid.Net.csproj -text
 Components.Aphid.Net/Components.Aphid.Net.csproj.vspscc -text

@@ -1,0 +1,11 @@
+﻿[$Initialization$]
+"ApplicationExtensionsFolder"  = "$RootFolder$\Extensions"
+"PkgDefSearchPath"             = "$ShellFolder$\Common7\IDE\ShellExtensions; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Platform; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Editor; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\TemplateProviders; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Diff; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\ProjectWizards; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Language\CallHierarchy; \
+                                  $ApplicationExtensionsFolder$"
+"RegistryRoot"                 = "Software\My Company\AphidVSShell\1.0"
