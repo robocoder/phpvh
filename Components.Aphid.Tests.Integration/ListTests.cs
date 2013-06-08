@@ -25,13 +25,13 @@ namespace Components.Aphid.Tests.Integration
         [Test]
         public void ListTest3()
         {
-            AssertFoo("#'Std'; a = [ 'f', 'o', 'o' ]; ret a.aggr(@(x, y)x + y);");
+            AssertFoo("#'Std'; a = [ 'f', 'o', 'o' ]; ret a.aggregate(@(x, y)x + y);");
         }
 
         [Test]
         public void ListTest4()
         {
-            AssertFoo("#'Std'; a = 'foo'; ret a.chars().aggr(@(x, y)x + y);");
+            AssertFoo("#'Std'; a = 'foo'; ret a.chars().aggregate(@(x, y)x + y);");
         }
     }
 }

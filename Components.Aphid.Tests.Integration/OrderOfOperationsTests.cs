@@ -85,7 +85,7 @@ namespace Components.Aphid.Tests.Integration
         [Test]
         public void CallPrecedenceTest11()
         {
-            Assert9("#'Std'; ret range(2, 3).aggr(@(x, y)x+y);");
+            Assert9("#'Std'; ret range(2, 3).aggregate(@(x, y)x+y);");
         }
 
         [Test]
