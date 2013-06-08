@@ -7,13 +7,13 @@ exts = [ 'jpg' ];
 probe = 'lfi_test.txt';
 
 travSeqs = dotLens
-    .collect(@(x)slashes
-        .map(@(y)'.'*x+y)
-        .collect(@(x)travSeqLens.map(@(y)x*y+probe)));
+    .selectMany(@(x)slashes
+        .select(@(y)'.'*x+y)
+        .selectMany(@(x)travSeqLens.select(@(y)x*y+probe)));
 
 if (exts? && exts.any()) 
     travSeqs = travSeqs
-        .collect(@(x)exts.map(@(y)x+chr(0)+'.'+y))
+        .selectMany(@(x)exts.select(@(y)x+chr(0)+'.'+y))
         .concat(travSeqs);
 
 ret travSeqs.distinct();
