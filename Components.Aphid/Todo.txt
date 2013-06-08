@@ -1,4 +1,5 @@
-﻿Regex support
+﻿Bin ops (+=, -=, etc)
+Regex support
 AOP
 Pattern matching
 string lower, upper
@@ -6,3 +7,5 @@ Inline XML, XML deserialization
 Attributes
 Reflection
 Exception handling
+Assignment tests x=x x=y
+Command line args
