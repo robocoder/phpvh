@@ -1,0 +1,18 @@
+﻿[$Initialization$]
+"ApplicationExtensionsFolder"  = "$RootFolder$\Extensions"
+"PkgDefSearchPath"             = "$ShellFolder$\Common7\IDE\ShellExtensions; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\DataDesign; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Platform; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Blend; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Editor; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\TemplateProviders; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Diff; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\ProjectWizards; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Language\CallHierarchy; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\ObjectBrowser; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Web; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Windows Forms Designer Services; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\Windows Forms Designer UI; \
+                                  $ShellFolder$\Common7\IDE\CommonExtensions\Microsoft\ReportingServices; \
+                                  $ApplicationExtensionsFolder$"
+"RegistryRoot"                 = "Software\My Company\VSShellStub1\1.0"

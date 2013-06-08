@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Package.ico" />
+    <Resource Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Components.Aphid\Components.Aphid.csproj">

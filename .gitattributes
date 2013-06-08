@@ -46,7 +46,6 @@ Components.Aphid.Tests.Integration/StringTests.cs -text
 Components.Aphid.VSPackage/AphidAuthoringScope.cs -text
 Components.Aphid.VSPackage/AphidLanguageService.cs -text
 Components.Aphid.VSPackage/AphidPackage.cs -text
-Components.Aphid.VSPackage/AphidPackagePackage.cs -text
 Components.Aphid.VSPackage/AphidScanner.cs -text
 Components.Aphid.VSPackage/Components.Aphid.VSPackage.csproj -text
 Components.Aphid.VSPackage/Components.Aphid.VSPackage.csproj.user -text
@@ -60,6 +59,7 @@ Components.Aphid.VSPackage/Resources/Package.ico -text svneol=unset#unset
 Components.Aphid.VSPackage/TokenHelper.cs -text
 Components.Aphid.VSPackage/VSPackage.resx -text
 Components.Aphid.VSPackage/source.extension.vsixmanifest -text
+Components.Aphid.VSPackage/todo.txt -text
 Components.Aphid/App.config -text
 Components.Aphid/Components.Aphid.csproj -text
 Components.Aphid/Components.Aphid.csproj.vspscc -text
@@ -576,4 +576,50 @@ ReleasePackager/Release.cs -text
 ReleasePackager/ReleasePackager.csproj -text
 ReleasePackager/ReleasePackager.csproj.vspscc -text
 ReleasePackager/ReleaseProject.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/AboutBox.xaml -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/AboutBox.xaml.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/Guids.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/Key.snk -text svneol=unset#unset
+VSShellStub1/VSShellStub1.AboutBoxPackage/PkgCmdID.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/Properties/AssemblyInfo.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/VSPackage.resx -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/VSShellStub1.AboutBoxPackage.cs -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/VSShellStub1.AboutBoxPackage.csproj -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/VSShellStub1.AboutBoxPackage.csproj.vspscc -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/VSShellStub1.AboutBoxPackage.vsct -text
+VSShellStub1/VSShellStub1.AboutBoxPackage/source.extension.vsixmanifest -text
+VSShellStub1/VSShellStub1/ApplicationIcon.ico -text svneol=unset#unset
+VSShellStub1/VSShellStub1/DebuggerProxy.dll -text svneol=unset#unset
+VSShellStub1/VSShellStub1/DebuggerProxy.dll.manifest -text
+VSShellStub1/VSShellStub1/Documentation/Images/AppEnv.jpg -text svneol=unset#unset
+VSShellStub1/VSShellStub1/Documentation/ReadMe.htm -text
+VSShellStub1/VSShellStub1/General.vssettings -text
+VSShellStub1/VSShellStub1/Resource.h -text svneol=unset#unset
+VSShellStub1/VSShellStub1/ShellSection.cpp -text
+VSShellStub1/VSShellStub1/ShellSection.h -text
+VSShellStub1/VSShellStub1/Splash.bmp -text svneol=unset#unset
+VSShellStub1/VSShellStub1/VSShellStub1.Application.pkgdef -text svneol=unset#unset
+VSShellStub1/VSShellStub1/VSShellStub1.cpp -text svneol=unset#unset
+VSShellStub1/VSShellStub1/VSShellStub1.exe.config -text
+VSShellStub1/VSShellStub1/VSShellStub1.exe.manifest -text
+VSShellStub1/VSShellStub1/VSShellStub1.h -text svneol=unset#unset
+VSShellStub1/VSShellStub1/VSShellStub1.pkgdef -text
+VSShellStub1/VSShellStub1/VSShellStub1.pkgundef -text
+VSShellStub1/VSShellStub1/VSShellStub1.rc -text
+VSShellStub1/VSShellStub1/VSShellStub1.reg -text svneol=unset#unset
+VSShellStub1/VSShellStub1/VSShellStub1.vcxproj -text
+VSShellStub1/VSShellStub1/VSShellStub1.vcxproj.filters -text
+VSShellStub1/VSShellStub1/VSShellStub1.vcxproj.vspscc -text
+VSShellStub1/VSShellStub1/VSShellStub1.winprf -text
+VSShellStub1/VSShellStub1/VsSDK.props -text
+VSShellStub1/VSShellStub1/small.ico -text svneol=unset#unset
+VSShellStub1/VSShellStub1/stdafx.cpp -text svneol=unset#unset
+VSShellStub1/VSShellStub1/stdafx.h -text svneol=unset#unset
+VSShellStub1/VSShellStub1UI/ApplicationCommands.vsct -text
+VSShellStub1/VSShellStub1UI/VSShellStub1UI.cpp -text svneol=unset#unset
+VSShellStub1/VSShellStub1UI/VSShellStub1UI.rc -text
+VSShellStub1/VSShellStub1UI/VSShellStub1UI.vcxproj -text
+VSShellStub1/VSShellStub1UI/VSShellStub1UI.vcxproj.filters -text
+VSShellStub1/VSShellStub1UI/VSShellStub1UI.vcxproj.vspscc -text
+VSShellStub1/VSShellStub1UI/resource.h -text svneol=unset#unset
 /build.cmd -text

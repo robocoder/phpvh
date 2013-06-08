@@ -4,12 +4,11 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using System.ComponentModel.Design;
 using Microsoft.Win32;
-using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 
-namespace Components.Aphid.VSPackage
+namespace VSShellStub1.AboutBoxPackage
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -24,13 +23,10 @@ namespace Components.Aphid.VSPackage
     // This attribute tells the PkgDef creation utility (CreatePkgDef.exe) that this class is
     // a package.
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    // This attribute is used to register the information needed to show this package
-    // in the Help/About dialog of Visual Studio.
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
-    [Guid(GuidList.guidAphidPackagePkgString)]    
-    [ProvideLanguageService(typeof(AphidLanguageService), "Aphid", 113)]
-    [ProvideLanguageExtension(typeof(AphidLanguageService), ".alx")]
-    public sealed class AphidPackage : Package
+    // This attribute is needed to let the shell know that this package exposes some menus.
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+    [Guid(GuidList.guidAboutBoxPackagePkgString)]
+    public sealed class AboutBoxPackage : Package
     {
         /// <summary>
         /// Default constructor of the package.
@@ -39,7 +35,7 @@ namespace Components.Aphid.VSPackage
         /// not sited yet inside Visual Studio environment. The place to do all the other 
         /// initialization is the Initialize method.
         /// </summary>
-        public AphidPackage()
+        public AboutBoxPackage()
         {
             Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering constructor for: {0}", this.ToString()));
         }
@@ -47,20 +43,40 @@ namespace Components.Aphid.VSPackage
 
 
         /////////////////////////////////////////////////////////////////////////////
-        // Overridden Package Implementation
+        // Overriden Package Implementation
         #region Package Members
 
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
-        /// where you can put all the initialization code that rely on services provided by VisualStudio.
+        /// where you can put all the initilaization code that rely on services provided by VisualStudio.
         /// </summary>
         protected override void Initialize()
         {
-            Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
+            Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
             base.Initialize();
 
+            // Add our command handlers for menu (commands must exist in the .vsct file)
+            OleMenuCommandService mcs = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
+            if (null != mcs)
+            {
+                // Create the command for the menu item.
+                CommandID menuCommandID = new CommandID(GuidList.guidAboutBoxPackageCmdSet, (int)PkgCmdIDList.cmdidHelpAbout);
+                MenuCommand menuItem = new MenuCommand(MenuItemCallback, menuCommandID);
+                mcs.AddCommand(menuItem);
+            }
         }
         #endregion
+
+        /// <summary>
+        /// This function is the callback used to execute a command when the a menu item is clicked.
+        /// See the Initialize method to see how the menu item is associated to this function using
+        /// the OleMenuCommandService service and the MenuCommand class.
+        /// </summary>
+        private void MenuItemCallback(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowModal();
+        }
 
     }
 }

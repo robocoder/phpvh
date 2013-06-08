@@ -18,7 +18,10 @@ namespace Components.Aphid.VSPackage
     {
         [ProvideService(typeof(AphidLanguageService))]
         [ProvideLanguageExtension(typeof(AphidLanguageService), ".alx")]
-        [ProvideLanguageService(typeof(AphidLanguageService), "Aphid Language", 0)]
+        [ProvideLanguageService(
+            typeof(AphidLanguageService), 
+            "Aphid Language", 
+            0)]
         [Guid("2e5ec861-04b2-4a6c-ad40-8e1e0ee0ceb6")]
         public class AphidPackage : Package, IOleComponent
         {

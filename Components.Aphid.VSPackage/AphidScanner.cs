@@ -101,6 +101,9 @@ namespace Components.Aphid.VSPackage
                     break;
 
                 case AphidTokenType.LeftBrace:
+                case AphidTokenType.RightBrace:
+                case AphidTokenType.LeftBracket:
+                case AphidTokenType.RightBracket:
                     tokenInfo.Trigger = TokenTriggers.MatchBraces;                    
                     break;
 
@@ -110,11 +113,18 @@ namespace Components.Aphid.VSPackage
                     break;
 
                 case AphidTokenType.LeftParenthesis:
-                    tokenInfo.Trigger = TokenTriggers.ParameterStart;
+                    tokenInfo.Trigger = TokenTriggers.MatchBraces;                    
+                    //tokenInfo.Trigger = TokenTriggers.ParameterStart;
                     break;
 
                 case AphidTokenType.RightParenthesis:
-                    tokenInfo.Trigger = TokenTriggers.ParameterEnd;
+                    tokenInfo.Trigger = TokenTriggers.MatchBraces;                    
+                    //tokenInfo.Trigger = TokenTriggers.ParameterEnd;
+                    break;
+
+                case AphidTokenType.Comment:
+                    tokenInfo.Type = TokenType.Comment;
+                    tokenInfo.Color = TokenColor.Comment;
                     break;
             }
 
@@ -126,7 +136,7 @@ namespace Components.Aphid.VSPackage
             _index = 0;
             try
             {
-                _tokens = new AphidLexer(source).GetTokens();
+                _tokens = new AphidLexer(source).GetAllTokens();
             }
             catch
             {
