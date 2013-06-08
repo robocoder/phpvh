@@ -1,11 +1,10 @@
 ﻿#'Std';
+
 ret {
     root: '..\\..\\..\\',
     output: '..\\..\\..\\release',
     mainProject: "PhpVH\\PhpVH.csproj",
     projects: [
-        "PhpVH.SelfTest\\PhpVH.SelfTest.csproj",
-        "PhpVH.Tests.Integration\\PhpVH.Tests.Integration.csproj",
         "PhpVHGui\\PhpVHGui.csproj",
         "PhpVHReportViewer\\PhpVHReportViewer.csproj",
         "PhpVH\\PhpVH.csproj",

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -23,9 +24,22 @@ namespace ReleasePackager
 
         public string OutputPath { get; private set; }
 
-        public Version Version { get; private set; }
-
         private ReleaseProject() { }
+
+        public Version GetVersion()
+        {
+            return Assembly.LoadFile(AssemblyName).GetName().Version;
+        }
+
+        public void Clean()
+        {
+            FileSystemInfoHelper.TryDelete(new DirectoryInfo(OutputPath));
+        }
+
+        public void Build()
+        {
+            MSBuild.Build(CsprojFilename);
+        }
 
         public static ReleaseProject Load(string projectFilename, string mode)
         {
@@ -33,19 +47,15 @@ namespace ReleasePackager
             var document = XDocument.Load(projectFilename);
             XNamespace ns = "http://schemas.microsoft.com/developer/msbuild/2003";
 
-            var outputType = document.Descendants(ns + "OutputType").SingleOrDefault().Value;
-
             var relativeOutputPath = document
                 .Descendants(ns + "OutputPath")
                 .SingleOrDefault(x => x.Value.ToLower().Contains(mode.ToLower())).Value;
 
+            var outputType = document.Descendants(ns + "OutputType").SingleOrDefault().Value;
             var outputPath = Path.Combine(projectDir, relativeOutputPath);
-
             var name = document.Descendants(ns + "AssemblyName").SingleOrDefault().Value;
             var fullName = Path.Combine(outputPath, name) + "." + (outputType.ToLower().Contains("exe") ? "exe" : "dll");
-
-            var version = Assembly.LoadFile(fullName).GetName().Version;
-
+            
             return new ReleaseProject()
             {
                 Name = name,
@@ -53,7 +63,6 @@ namespace ReleasePackager
                 CsprojFilename = projectFilename,
                 ProjectDirectory = projectDir,
                 OutputPath = outputPath,
-                Version = version,
             };
         }
     }

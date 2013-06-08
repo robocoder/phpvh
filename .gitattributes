@@ -619,6 +619,8 @@ PhpVHReportViewer/Window1.xaml.cs -text
 PhpVHReportViewer/app.config -text
 ReleasePackager/App.config -text
 ReleasePackager/Cleanup.cs -text
+ReleasePackager/FileSystemInfoHelper.cs -text
+ReleasePackager/MSBuild.cs -text
 ReleasePackager/PhpVH.alx -text
 ReleasePackager/Program.cs -text
 ReleasePackager/Properties/AssemblyInfo.cs -text
