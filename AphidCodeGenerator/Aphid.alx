@@ -64,8 +64,7 @@ ret
 
                 { regex: "\\|>", type: "PipelineOperator" },        
     
-                { regex: "$", type: "AsyncOperator" },
-                { regex: "$>", type: "JoinOperator" },
+                { regex: "$", type: "PatternMatchingOperator" },                
 
                 { regex: ";", type: "EndOfStatement" },
 

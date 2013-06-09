@@ -17,7 +17,6 @@ namespace Components.Aphid.Lexer
         AdditionOperator,
         AndOperator,
         AssignmentOperator,
-        AsyncOperator,
         BinaryAndOperator,
         BinaryOrOperator,
         breakKeyword,
@@ -43,7 +42,6 @@ namespace Components.Aphid.Lexer
         ifKeyword,
         IncrementOperator,
         inKeyword,
-        JoinOperator,
         LeftBrace,
         LeftBracket,
         LeftParenthesis,
@@ -64,6 +62,7 @@ namespace Components.Aphid.Lexer
         Number,
         OrEqualOperator,
         OrOperator,
+        PatternMatchingOperator,
         PipelineOperator,
         PlusEqualOperator,
         retKeyword,
@@ -520,21 +519,8 @@ namespace Components.Aphid.Lexer
                             return AphidTokenType.NotOperator;
 
                         case '$':
-                            if (charIndex < lastIndex)
-                            {
-                                currentChar = text[++charIndex];
 
-                                switch (currentChar)
-                                {
-                                    case '>':
-
-                                        return AphidTokenType.JoinOperator;
-
-                                }
-
-                                charIndex--;
-                            }
-                            return AphidTokenType.AsyncOperator;
+                            return AphidTokenType.PatternMatchingOperator;
 
                         case ';':
 
@@ -2128,6 +2114,7 @@ namespace Components.Aphid.Lexer
                 var lexeme = text.Substring(index, charIndex - lastIndex);
 
                 tokens.Add(new AphidToken(tokenType, lexeme, index));
+
 
                 lastIndex = charIndex;
             }

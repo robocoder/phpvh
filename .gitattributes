@@ -169,6 +169,7 @@ Components.Aphid/Parser/NullExpression.cs -text
 Components.Aphid/Parser/NumberExpression.cs -text
 Components.Aphid/Parser/ObjectExpression.cs -text
 Components.Aphid/Parser/PartialFunctionExpression.cs -text
+Components.Aphid/Parser/PatternMatchingExpression.cs -text
 Components.Aphid/Parser/Statement.cs -text
 Components.Aphid/Parser/StringExpression.cs -text
 Components.Aphid/Parser/StringParser.cs -text

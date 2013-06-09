@@ -253,6 +253,60 @@ namespace Components.Aphid.Parser
                     NextToken();
                     break;
 
+                case AphidTokenType.PatternMatchingOperator:
+                    var matchExp = new PatternMatchingExpression();
+                    NextToken();
+                    Match(AphidTokenType.LeftParenthesis);
+                    matchExp.TestExpression = ParseExpression();
+                    Match(AphidTokenType.RightParenthesis);
+
+                    while (true)
+                    {
+                        var tests = new List<Expression>();
+
+                        while (true)
+                        {
+                            tests.Add(ParseExpression());
+
+                            if (_currentToken.TokenType == AphidTokenType.Comma)
+                            {
+                                NextToken();
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        if (_currentToken.TokenType == AphidTokenType.ColonOperator)
+                        {
+                            NextToken();
+
+                            var b = ParseExpression();
+
+                            foreach (var t in tests)
+                            {
+                                matchExp.Patterns.Add(new Tuple<Expression, Expression>(t, b));
+                            }
+                        }
+                        else
+                        {
+                            matchExp.Patterns.Add(new Tuple<Expression,Expression>(null, tests[0]));
+                        }
+
+                        if (_currentToken.TokenType == AphidTokenType.Comma)
+                        {
+                            NextToken();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    exp = matchExp;
+                    break;
+
                 default:
                     throw new AphidParserException(_currentToken);
             }

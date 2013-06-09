@@ -59,6 +59,7 @@ namespace Components.Aphid.VSPackage
                 case AphidTokenType.functionOperator:
                 case AphidTokenType.LoadLibraryOperator:
                 case AphidTokenType.LoadScriptOperator:
+                case AphidTokenType.PatternMatchingOperator:
 
                     tokenInfo.Type = TokenType.Keyword;
                     tokenInfo.Color = TokenColor.Keyword;
@@ -67,7 +68,6 @@ namespace Components.Aphid.VSPackage
                 case AphidTokenType.AdditionOperator:
                 case AphidTokenType.AndOperator:
                 case AphidTokenType.AssignmentOperator:
-                case AphidTokenType.AsyncOperator:
                 case AphidTokenType.BinaryAndOperator:
                 case AphidTokenType.BinaryOrOperator:
                 case AphidTokenType.ColonOperator:
@@ -80,7 +80,6 @@ namespace Components.Aphid.VSPackage
                 case AphidTokenType.GreaterThanOperator:
                 case AphidTokenType.GreaterThanOrEqualOperator:
                 case AphidTokenType.IncrementOperator:
-                case AphidTokenType.JoinOperator:
                 case AphidTokenType.LessThanOperator:
                 case AphidTokenType.LessThanOrEqualOperator:                
                 case AphidTokenType.MinusEqualOperator:

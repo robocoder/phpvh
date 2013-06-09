@@ -93,8 +93,8 @@ namespace Components.Aphid.Interpreter
 
         private AphidObject InterpretEqualityExpression(BinaryOperatorExpression expression)
         {
-            var left = InterpretExpression(expression.LeftOperand) as AphidObject;
-            var right = InterpretExpression(expression.RightOperand) as AphidObject;
+            var left = (AphidObject)InterpretExpression(expression.LeftOperand);
+            var right = (AphidObject)InterpretExpression(expression.RightOperand);
 
             bool val = left.Value != null ?
                 left.Value.Equals(right.Value) :
@@ -718,6 +718,34 @@ namespace Components.Aphid.Interpreter
             return _currentScope.Variables;
         }
 
+        public AphidObject InterpretPatternMatchingExpression(PatternMatchingExpression expression)
+        {
+            var left = (AphidObject)InterpretExpression(expression.TestExpression);
+            
+            foreach (var p in expression.Patterns)
+            {
+                if (p.Item1 != null)
+                {
+                    var right = (AphidObject)InterpretExpression(p.Item1);
+
+                    var b = left.Value != null ?
+                        left.Value.Equals(right.Value) :
+                        (null == right.Value && left.Count == 0 && right.Count == 0);
+
+                    if (b)
+                    {
+                        return ValueHelper.Wrap(InterpretExpression(p.Item2));
+                    }
+                }
+                else
+                {
+                    return ValueHelper.Wrap(InterpretExpression(p.Item2));
+                }
+            }
+
+            return new AphidObject();
+        }
+
         private object InterpretExpression(Expression expression)
         {
             if (expression is BinaryOperatorExpression)
@@ -800,6 +828,10 @@ namespace Components.Aphid.Interpreter
             else if (expression is ThisExpression)
             {
                 return InterpretThisExpression();
+            }
+            else if (expression is PatternMatchingExpression)
+            {
+                return InterpretPatternMatchingExpression(expression as PatternMatchingExpression);
             }
             else
             {
