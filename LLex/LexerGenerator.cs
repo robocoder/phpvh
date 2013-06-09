@@ -200,6 +200,7 @@ namespace LLex
 
             return s
                 .Replace("{Body}", Properties.Resources.AddTokenTemplate)
+                .Replace("{AllBody}", Properties.Resources.AddTokenTemplate)
                 .Replace("PreviousChar();", "charIndex--;");
         }
     }

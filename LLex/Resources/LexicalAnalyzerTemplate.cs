@@ -112,6 +112,26 @@ namespace {LexerNamespace}
 
             return tokens;
         }
+
+        public List<{Token}> GetAllTokens()
+        {
+            charIndex = -1;
+
+            {TokenType} tokenType;
+
+            int lastIndex = -1;
+
+            var tokens = new List<{Token}>();
+
+            while ((tokenType = GetToken()) != {TokenType}.EndOfFile)
+            {
+                {AllBody}
+
+                lastIndex = charIndex;                
+            }
+
+            return tokens;
+        }
     }
 }
 #pragma warning restore 0162
