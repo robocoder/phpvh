@@ -131,6 +131,8 @@ Components.Aphid/Interpreter/OperatorHelper.cs -text
 Components.Aphid/Interpreter/ValueHelper.cs -text
 Components.Aphid/Lexer/AphidLexer.cs -text
 Components.Aphid/Library/Conversion.alx -text
+Components.Aphid/Library/Env.alx -text
+Components.Aphid/Library/EnvironmentLibrary.cs -text
 Components.Aphid/Library/IO.alx -text
 Components.Aphid/Library/IOLibrary.cs -text
 Components.Aphid/Library/List.alx -text
