@@ -78,6 +78,7 @@ Components.Aphid.Net/HttpLibrary.cs -text
 Components.Aphid.Net/Properties/AssemblyInfo.cs -text
 Components.Aphid.Tests.Integration/AphidObjectTests.cs -text
 Components.Aphid.Tests.Integration/AphidTests.cs -text
+Components.Aphid.Tests.Integration/AssignmentTests.cs -text
 Components.Aphid.Tests.Integration/Components.Aphid.Tests.Integration.csproj -text
 Components.Aphid.Tests.Integration/Components.Aphid.Tests.Integration.csproj.vspscc -text
 Components.Aphid.Tests.Integration/ConditionalTests.cs -text
