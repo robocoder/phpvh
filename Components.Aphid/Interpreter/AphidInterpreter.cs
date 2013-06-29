@@ -80,15 +80,29 @@ namespace Components.Aphid.Interpreter
         private AphidObject InterpretAndExpression(BinaryOperatorExpression expression)
         {
             var left = (bool)ValueHelper.Unwrap(InterpretExpression(expression.LeftOperand));
-            var right = (bool)ValueHelper.Unwrap(InterpretExpression(expression.RightOperand));
-            return new AphidObject(left && right);
+
+            if (!left)
+            {
+                return new AphidObject(false);
+            }
+            else
+            {
+                return new AphidObject((bool)ValueHelper.Unwrap(InterpretExpression(expression.RightOperand)));
+            }
         }
 
         private AphidObject InterpretOrExpression(BinaryOperatorExpression expression)
         {
             var left = (bool)ValueHelper.Unwrap(InterpretExpression(expression.LeftOperand));
-            var right = (bool)ValueHelper.Unwrap(InterpretExpression(expression.RightOperand));
-            return new AphidObject(left || right);
+
+            if (left)
+            {
+                return new AphidObject(true);
+            }
+            else
+            {
+                return new AphidObject((bool)ValueHelper.Unwrap(InterpretExpression(expression.RightOperand)));
+            }
         }
 
         private AphidObject InterpretEqualityExpression(BinaryOperatorExpression expression)
