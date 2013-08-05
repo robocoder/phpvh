@@ -92,7 +92,7 @@ namespace Components.ConsolePlus
             _writeLine("");
         }        
 
-        private static void DumpTable(IEnumerable<KeyValuePair<string, string>> nameValuePairs)
+        public static void DumpTable(IEnumerable<KeyValuePair<string, string>> nameValuePairs)
         {
             const int paddingSize = 0;
             var longestNameLength = nameValuePairs.OrderByDescending(x => x.Key.Length).First().Key.Length;
@@ -182,7 +182,7 @@ namespace Components.ConsolePlus
             }
         }
 
-        public static void Dump<T>(T obj, DumpMode mode)
+        public static IEnumerable<KeyValuePair<string, string>> CreateTable(object obj, bool escapeLines)
         {
             Func<PropertyInfo, string> tryGet = x =>
             {
@@ -200,14 +200,44 @@ namespace Components.ConsolePlus
                 }
             };
             var t = obj.GetType();
-            var nvps = t
+            return t
                 .GetProperties()
                 .Select(x => new KeyValuePair<string, string>(
                     x.Name,
-                    mode == DumpMode.Table ?
+                    escapeLines ?
                         tryGet(x).Replace("\r", "\\r").Replace("\n", "\\n") :
                         tryGet(x)
                 ));
+        }
+
+        public static void Dump<T>(T obj, DumpMode mode)
+        {
+//            Func<PropertyInfo, string> tryGet = x =>
+//            {
+//                try
+//                {
+//#if NET35
+//                    return (x.GetValue(obj, null) ?? "null").ToString();
+//#else
+//                    return (x.GetValue(obj) ?? "null").ToString();
+//#endif
+//                }
+//                catch (Exception e)
+//                {
+//                    return string.Format("Error getting value: {0}", e);
+//                }
+//            };
+//            var t = obj.GetType();
+//            var nvps = t
+//                .GetProperties()
+//                .Select(x => new KeyValuePair<string, string>(
+//                    x.Name,
+//                    mode == DumpMode.Table ?
+//                        tryGet(x).Replace("\r", "\\r").Replace("\n", "\\n") :
+//                        tryGet(x)
+//                ));
+
+            var nvps = CreateTable(obj, mode == DumpMode.Table);
 
             if (mode == DumpMode.Table)
             {

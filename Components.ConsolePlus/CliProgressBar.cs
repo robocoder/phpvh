@@ -41,14 +41,24 @@ namespace Components.ConsolePlus
             var segmentLength = ((double)consoleWidth / length);
             var barLength = (int)Math.Ceiling(Value * segmentLength);
 
+            if (barLength > consoleWidth)
+            {
+                barLength = consoleWidth;
+            }
+
             if (_lastBarLength == barLength)
             {
                 return;
             }
 
             _lastBarLength = barLength;
-
             var fillerLength = consoleWidth - barLength;
+
+            if (Maximum == 0)
+            {
+                barLength = consoleWidth;
+                fillerLength = 0;
+            }
 
             Cli.Write(
                 "\r ~Cyan~{0}~R~~Gray~{1}~R~",
