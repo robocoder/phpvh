@@ -79,12 +79,27 @@ namespace Components.Aphid.Parser
             {
                 var t = _currentToken.TokenType;
                 NextToken();
-                return new UnaryOperatorExpression(t, ParseCallExpression());
+                return new UnaryOperatorExpression(t, ParseArrayAccessExpression());
             }
             else
             {
-                return ParseCallExpression();
+                return ParseArrayAccessExpression();
             }
+        }
+
+        public Expression ParseArrayAccessExpression()
+        {
+            var exp = ParseCallExpression();
+
+            while (_currentToken.TokenType == AphidTokenType.LeftBracket)
+            {
+                NextToken();
+                var key = ParseExpression();
+                Match(AphidTokenType.RightBracket);
+                exp = new ArrayAccessExpression(exp, key);
+            }
+
+            return exp;
         }
 
         public Expression ParseCallExpression()
@@ -309,22 +324,7 @@ namespace Components.Aphid.Parser
 
                 default:
                     throw new AphidParserException(_currentToken);
-            }
-
-            switch (_currentToken.TokenType)
-            {
-                case AphidTokenType.LeftBracket:
-                    if (exp is ArrayExpression)
-                    {
-                        break;
-                    }
-
-                    NextToken();
-                    var key = ParseExpression();
-                    Match(AphidTokenType.RightBracket);
-                    exp = new ArrayAccessExpression(exp, key);
-                    break;
-            }
+            }            
 
             return exp;
         }

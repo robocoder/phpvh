@@ -11,16 +11,34 @@ namespace Components.Aphid.Tests.Integration
     public class ListTests : AphidTests
     {
         [Test]
-        public void ListTest()
+        public void ListAccessTest()
         {
             AssertFoo("x = [ 9, 'foo' ]; ret x[1];");
         }
 
         [Test]
-        public void ListTest2()
+        public void ListAccessTest2()
         {
             Assert9("x = [ 9, 'foo' ]; ret x[0];");
         }
+
+        [Test]
+        public void ListAccessTest3()
+        {
+            AssertFoo("x={ y:['foo'] }; ret x.y[0];");
+        }
+
+        [Test]
+        public void ListElementSetTest()
+        {
+            AssertFoo("x = [ 'bar' ]; x[0] = 'foo'; ret x[0];");
+        }
+
+        [Test]
+        public void ListElementSetTest2()
+        {
+            AssertFoo("x = [ 'foo' ]; y = x[0]; y = 'bar'; ret x[0];");
+        }        
 
         [Test]
         public void ListTest3()

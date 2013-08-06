@@ -168,6 +168,7 @@ namespace Components.Aphid.Interpreter
             var value = InterpretExpression(expression.RightOperand);
             var value2 = value as AphidObject;
             var idExp = expression.LeftOperand as IdentifierExpression;
+            ArrayAccessExpression arrayAccessExp;
             if (idExp != null)
             {
                 var id = idExp.Identifier;
@@ -197,6 +198,11 @@ namespace Components.Aphid.Interpreter
                 {
                     destObj.Value = value;
                 }
+            }
+            else if ((arrayAccessExp = expression.LeftOperand as ArrayAccessExpression) != null)
+            {
+                var obj = InterpretArrayAccessExpression(arrayAccessExp);
+                obj.Value = ValueHelper.Unwrap(value);
             }
             else
             {

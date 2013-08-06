@@ -26,6 +26,12 @@ namespace Components.Aphid.Library
             Console.WriteLine(message != null ? message.ToString() : null);
         }
 
+        [AphidInteropFunction("printf")]
+        private static void PrintF(string format, params object[] args)
+        {
+            Console.WriteLine(format, args);
+        }
+
         [AphidInteropFunction("sprintf")]
         private static string SPrintF(string format, params object[] args)
         {

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AphidObjectTests.cs" />
     <Compile Include="AphidTests.cs" />
+    <Compile Include="AssignmentTests.cs" />
     <Compile Include="QueryTests.cs" />
     <Compile Include="ListTests.cs" />
     <Compile Include="ConditionalTests.cs" />
