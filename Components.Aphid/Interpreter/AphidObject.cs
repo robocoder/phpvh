@@ -9,6 +9,8 @@ namespace Components.Aphid.Interpreter
 {
     public partial class AphidObject : Dictionary<string, AphidObject>
     {
+        public AphidObject Parent { get; set; }
+
         public object Value { get; set; }
 
         public AphidObject()
@@ -18,6 +20,12 @@ namespace Components.Aphid.Interpreter
         public AphidObject(object value)
         {
             Value = value;
+        }
+
+        public AphidObject(object value, AphidObject parent)
+        {
+            Value = value;
+            Parent = parent;
         }
 
         public override string ToString()
@@ -158,6 +166,39 @@ namespace Components.Aphid.Interpreter
             }
 
             return array;
+        }
+
+        public void CopyTo(AphidObject obj)
+        {
+            obj.Value = Value;
+
+            foreach (var nvp in this)
+            {
+                if (obj.ContainsKey(nvp.Key))
+                {
+                    obj[nvp.Key] = nvp.Value;
+                }
+                else
+                {
+                    obj.Add(nvp.Key, nvp.Value);
+                }
+            }
+        }
+
+        public bool TryResolve(string key, out AphidObject value)
+        {
+            if (base.TryGetValue(key, out value))
+            {
+                return true;
+            }
+            else if (Parent != null)
+            {
+                return Parent.TryResolve(key, out value);
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

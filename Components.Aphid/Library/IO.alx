@@ -1,1 +1,16 @@
 ﻿##'Components.Aphid.Library.IOLibrary';
+
+getFsos = @(f, dir, opt) {
+	filter = '*';
+	recurse = false;
+
+	if (opt?) {
+		if (opt.filter?) filter = opt.filter;
+		if (opt.recurse?) recurse = opt.recurse;
+	}
+
+	ret f(dir, filter, recurse);
+};
+
+io.dir.getFiles = @getFsos(io.dir.getFilesInternal);
+io.dir.getDirs = @getFsos(io.dir.getDirsInternal);

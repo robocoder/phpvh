@@ -10,7 +10,9 @@
         ret l;
     };
 
-    l.iter = @(action) for (x in l) action(x);;
+    l.iter = @(action) { 
+		for (x in l) action(x);
+	};
 
     l.contains = @(item) __list.contains(l, item);
 
@@ -26,7 +28,9 @@
         ret x;
     };
 
-    l.first = @(predicate) for (x in l) if (predicate(x)) ret x;;
+    l.first = @(predicate) {
+		for (x in l) if (predicate(x)) ret x;
+	};
 
     l.selectMany = @(selector) {
         x = [];

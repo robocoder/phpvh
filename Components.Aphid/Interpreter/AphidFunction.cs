@@ -13,6 +13,6 @@ namespace Components.Aphid.Interpreter
 
         public List<Expression> Body { get; set; }
 
-        public AphidScope ParentScope { get; set; }
+        public AphidObject ParentScope { get; set; }
     }
 }

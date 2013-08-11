@@ -89,6 +89,12 @@ namespace Components.Aphid.Tests.Integration
         }
 
         [Test]
+        public void ScopeTest6()
+        {
+            Assert9("x={y:0}; if (true) { x.y = 9; } ret x.y;");
+        }
+
+        [Test]
         public void VariableDeclarationTest()
         {
             AssertTrue("x; ret x?;");

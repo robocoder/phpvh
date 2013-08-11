@@ -33,5 +33,17 @@ namespace Components.Aphid.Tests.Integration
         {
             AssertFoo("x = { y: { z: 'foo' } }; ret x.{'y'}.{'z'};");
         }
+
+        [Test]
+        public void DynamicMemberTest4()
+        {
+            AssertFoo("x = { y: { z: 'bar' } }; x.{'y'}.{'z'} = 'foo'; ret x.y.z;");
+        }
+
+        [Test]
+        public void DynamicMemberTest5()
+        {
+            AssertFoo("x = { y: { z: 'bar' } }; x.{'y'}.{'z'} = 'foo'; ret x.{'y'}.{'z'};");
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Components.Aphid.Interpreter;
 using System.Text.RegularExpressions;
+using Components.Aphid.Parser;
 
 namespace Components.Aphid.Library
 {
@@ -18,6 +19,24 @@ namespace Components.Aphid.Library
             var retVal = interpreter.GetReturnValue();
             interpreter.LeaveChildScope();
             return retVal;
+        }
+
+        [AphidInteropFunction("type")]
+        public static string GetObjectType(object obj)
+        {
+            var n = obj.GetType().Name;
+            switch (n)
+            {
+                case "List`1":
+                    return "list";
+                case "Decimal":
+                    return "number";
+                case "String":
+                    return "string";
+                default:
+                    return "Unknown";
+            }
+            return null;
         }
 
         [AphidInteropFunction("print")]
@@ -125,10 +144,10 @@ namespace Components.Aphid.Library
                 .ToList();
         }
 
-        [AphidInteropFunction("__list.add")]
-        private static void ListAdd(List<AphidObject> list, object value)
+        [AphidInteropFunction("__list.add", UnwrapParameters = false)]
+        private static void ListAdd(AphidObject list, AphidObject value)
         {
-            list.Add (new AphidObject(value));
+            ((List<AphidObject>)list.Value).Add(value);
         }
 
         [AphidInteropFunction("__list.contains")]
@@ -138,14 +157,14 @@ namespace Components.Aphid.Library
             return  s;
         }
 
-        [AphidInteropFunction("__list.insert")]
-        private static void ListAdd(List<AphidObject> list, decimal index, object value)
+        [AphidInteropFunction("__list.insert", UnwrapParameters = false)]
+        private static void ListAdd(AphidObject list, AphidObject index, AphidObject value)
         {
-            list.Insert((int)index, new AphidObject(value));
+            ((List<AphidObject>)list.Value).Insert((int)index.Value, value);
         }
 
         [AphidInteropFunction("__list.count")]
-        private static decimal ListAdd(List<AphidObject> list)
+        private static decimal ListCount(List<AphidObject> list)
         {
             return (decimal)list.Count;
         }
@@ -196,9 +215,25 @@ namespace Components.Aphid.Library
         }        
 
         [AphidInteropFunction("__string.split")]
-        private static List<AphidObject> StringSplit(string str, List<AphidObject> separator)
+        private static List<AphidObject> StringSplit(string str, object separator)
         {
-            var s = separator.Select(x => x.GetString()).ToArray();
+            string[] s;
+            string separatorString;
+            List<AphidObject> separatorList;
+
+            if ((separatorString = separator as string) != null)
+            {
+                s = new[] { separatorString };
+            }
+            else if ((separatorList = separator as List<AphidObject>) != null)
+            {
+                s = separatorList.Select(x => x.GetString()).ToArray();
+            }
+            else
+            {
+                throw new AphidRuntimeException("Invalid string split separator: {0}", separator);
+            }
+
             return str
                 .Split(s, StringSplitOptions.None)
                 .Select(x => new AphidObject(x))

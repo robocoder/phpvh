@@ -58,6 +58,7 @@
     <Compile Include="Interpreter\AphidObjectConverter.cs" />
     <Compile Include="Interpreter\OperatorHelper.cs" />
     <Compile Include="Interpreter\ValueHelper.cs" />
+    <Compile Include="Library\DebugLibrary.cs" />
     <Compile Include="Library\EnvironmentLibrary.cs" />
     <Compile Include="Library\ReflectionLibrary.cs" />
     <Compile Include="Library\ThreadingLibrary.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="Parser\ValueExpression.cs" />
     <Compile Include="Parser\ElseExpression.cs" />
     <Compile Include="Parser\IfExpression.cs" />
-    <Compile Include="Interpreter\AphidScope.cs" />
     <Compile Include="Parser\DynamicMemberExpression.cs" />
     <Compile Include="Parser\NumberExpression.cs" />
     <Compile Include="Parser\ArrayAccessExpression.cs" />
@@ -112,6 +112,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Library\Conversion.alx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\Dbg.alx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\Reflection.alx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Library\Env.alx">

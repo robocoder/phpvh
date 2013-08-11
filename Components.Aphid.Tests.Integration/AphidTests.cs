@@ -13,14 +13,23 @@ namespace Components.Aphid.Tests.Integration
     {
         protected virtual bool LoadStd { get { return false; } }
 
+        protected virtual bool LoadReflection { get { return false; } }
+
         protected virtual string PrefixScript(string script)
         {
+            var includes = "";
+
             if (LoadStd)
             {
-                script = "#'Std'; " + script;
+                includes += "#'Std'; ";
             }
 
-            return script;
+            if (LoadReflection)
+            {
+                includes += "#'Reflection'; ";
+            }
+
+            return includes + script;
         }
 
         private AphidObject Execute(string script)

@@ -26,9 +26,9 @@ namespace Components.Aphid.Interpreter
             get { return _loader; }
         }
 
-        private AphidScope _currentScope;
+        private AphidObject _currentScope;
 
-        public AphidScope CurrentScope
+        public AphidObject CurrentScope
         {
             get { return _currentScope; }
         }
@@ -39,8 +39,8 @@ namespace Components.Aphid.Interpreter
         {
             Init();
 
-            _currentScope = new AphidScope(new AphidObject());
-            _currentScope.Variables.Add(
+            _currentScope = new AphidObject();
+            _currentScope.Add(
                 "__initList",
                 ValueHelper.Wrap(new AphidFunction()
                 {
@@ -48,7 +48,7 @@ namespace Components.Aphid.Interpreter
                     Body = new List<Expression>()
                 }));
 
-            _currentScope.Variables.Add(
+            _currentScope.Add(
                 "__initString",
                 ValueHelper.Wrap(new AphidFunction()
                 {
@@ -57,7 +57,7 @@ namespace Components.Aphid.Interpreter
                 }));
         }
 
-        public AphidInterpreter(AphidScope currentScope)
+        public AphidInterpreter(AphidObject currentScope)
         {
             Init();
             _currentScope = currentScope;
@@ -154,7 +154,7 @@ namespace Components.Aphid.Interpreter
             {
                 AphidObject val;
 
-                if (!obj.TryGetValue(key, out val))
+                if (!obj.TryResolve(key, out val))
                 {
                     throw new AphidRuntimeException("Undefined member {0} in expression {1}", key, expression);
                 }
@@ -178,7 +178,7 @@ namespace Components.Aphid.Interpreter
                 {
                     destObj = new AphidObject();
 
-                    _currentScope.Variables.Add(id, destObj);                    
+                    _currentScope.Add(id, destObj);                    
                 }
                 else
                 {
@@ -188,6 +188,7 @@ namespace Components.Aphid.Interpreter
                 if (value2 != null)
                 {
                     destObj.Value = value2.Value;
+                    destObj.Parent = value2.Parent;
 
                     foreach (var x in value2)
                     {
@@ -215,6 +216,7 @@ namespace Components.Aphid.Interpreter
                 else if (objRef.Object.ContainsKey(objRef.Name))
                 {
                     objRef.Object[objRef.Name].Value = ValueHelper.Unwrap(value);
+                    //ValueHelper.Wrap(value).CopyTo(objRef.Object[objRef.Name]);
                 }
                 else
                 {
@@ -329,22 +331,14 @@ namespace Components.Aphid.Interpreter
             return obj;
         }
 
-        private AphidObject InterpretIdentifierExpression(IdentifierExpression expression, AphidScope scope = null)
+        private AphidObject InterpretIdentifierExpression(IdentifierExpression expression)
         {
-            if (scope == null)
-            {
-                scope = _currentScope;
-            }
-
             AphidObject obj;
-            if (scope.Variables.TryGetValue(expression.Identifier, out obj))
+
+            if (_currentScope.TryResolve(expression.Identifier, out obj))
             {
                 return obj;
-            }
-            else if (scope.Parent != null)
-            {
-                return InterpretIdentifierExpression(expression, scope.Parent);
-            }
+            }            
             else
             {
                 return null;
@@ -370,7 +364,7 @@ namespace Components.Aphid.Interpreter
 
         private AphidObject CallFunctionCore(AphidFunction function, IEnumerable<AphidObject> parms)
         {
-            var functionScope = new AphidScope(new AphidObject(), function.ParentScope);
+            var functionScope = new AphidObject(null, function.ParentScope);
 
             var i = 0;
             foreach (var arg in parms)
@@ -380,7 +374,7 @@ namespace Components.Aphid.Interpreter
                     break;
                 }
 
-                functionScope.Variables.Add(function.Args[i++], arg);
+                functionScope.Add(function.Args[i++], arg);
             }
 
             var lastScope = _currentScope;
@@ -399,14 +393,17 @@ namespace Components.Aphid.Interpreter
         {
             AphidObject retVal = null;
 
-            _currentScope.Variables.TryGetValue(_return, out retVal);
+            if (_currentScope.TryResolve(_return, out retVal))
+            {
+                _currentScope.Remove(_return);
+            }
 
             return retVal;
         }
 
         private void SetReturnValue(AphidObject obj)
         {
-            _currentScope.Variables.Add(_return, obj);
+            _currentScope.Add(_return, obj);
         }
 
         private object InterpretCallExpression(CallExpression expression)
@@ -609,7 +606,7 @@ namespace Components.Aphid.Interpreter
 
         public void EnterChildScope()
         {
-            _currentScope = new AphidScope(new AphidObject(), _currentScope);
+            _currentScope = new AphidObject(null, _currentScope);
         }
 
         public bool LeaveChildScope(bool bubbleReturnValue = false)
@@ -664,7 +661,7 @@ namespace Components.Aphid.Interpreter
             foreach (var element in elements)
             {
                 EnterChildScope();
-                _currentScope.Variables.Add(elementId, element);
+                _currentScope.Add(elementId, element);
                 Interpret(expression.Body, false);
 
                 if (LeaveChildScope(true) || _isBreaking)
@@ -700,7 +697,7 @@ namespace Components.Aphid.Interpreter
                 throw new AphidRuntimeException("Cannot load script {0}", expression.LibraryExpression);
             }
 
-            _loader.LoadLibrary(library, _currentScope.Variables);
+            _loader.LoadLibrary(library, _currentScope);
 
             return null;
         }
@@ -733,9 +730,9 @@ namespace Components.Aphid.Interpreter
             return new AphidObject(partialFunc);
         }
 
-        public AphidObject InterpretThisExpression()
+        public object InterpretThisExpression()
         {
-            return _currentScope.Variables;
+            return _currentScope;
         }
 
         public AphidObject InterpretPatternMatchingExpression(PatternMatchingExpression expression)
@@ -865,7 +862,7 @@ namespace Components.Aphid.Interpreter
             {
                 if (expression is IdentifierExpression)
                 {
-                    _currentScope.Variables.Add((expression as IdentifierExpression).Identifier, new AphidObject());
+                    _currentScope.Add((expression as IdentifierExpression).Identifier, new AphidObject());
                 }
                 else
                 {

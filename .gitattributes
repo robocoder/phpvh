@@ -83,6 +83,7 @@ Components.Aphid.Tests.Integration/Components.Aphid.Tests.Integration.csproj -te
 Components.Aphid.Tests.Integration/Components.Aphid.Tests.Integration.csproj.vspscc -text
 Components.Aphid.Tests.Integration/ConditionalTests.cs -text
 Components.Aphid.Tests.Integration/FunctionTests.cs -text
+Components.Aphid.Tests.Integration/InitTests.cs -text
 Components.Aphid.Tests.Integration/ListTests.cs -text
 Components.Aphid.Tests.Integration/LiteralTests.cs -text
 Components.Aphid.Tests.Integration/LoopTests.cs -text
@@ -94,6 +95,7 @@ Components.Aphid.Tests.Integration/PropertyTests.cs -text
 Components.Aphid.Tests.Integration/QueryTests.cs -text
 Components.Aphid.Tests.Integration/ScopeTests.cs -text
 Components.Aphid.Tests.Integration/StringTests.cs -text
+Components.Aphid.Tests.Integration/ThisTests.cs -text
 Components.Aphid.VSPackage/AphidAuthoringScope.cs -text
 Components.Aphid.VSPackage/AphidLanguageService.cs -text
 Components.Aphid.VSPackage/AphidPackage.cs -text
@@ -132,12 +134,15 @@ Components.Aphid/Interpreter/OperatorHelper.cs -text
 Components.Aphid/Interpreter/ValueHelper.cs -text
 Components.Aphid/Lexer/AphidLexer.cs -text
 Components.Aphid/Library/Conversion.alx -text
+Components.Aphid/Library/Dbg.alx -text
+Components.Aphid/Library/DebugLibrary.cs -text
 Components.Aphid/Library/Env.alx -text
 Components.Aphid/Library/EnvironmentLibrary.cs -text
 Components.Aphid/Library/IO.alx -text
 Components.Aphid/Library/IOLibrary.cs -text
 Components.Aphid/Library/List.alx -text
 Components.Aphid/Library/Query.alx -text
+Components.Aphid/Library/Reflection.alx -text
 Components.Aphid/Library/ReflectionLibrary.cs -text
 Components.Aphid/Library/StandardLibrary.cs -text
 Components.Aphid/Library/Std.alx -text
