@@ -96,6 +96,7 @@ Components.Aphid.Tests.Integration/QueryTests.cs -text
 Components.Aphid.Tests.Integration/ScopeTests.cs -text
 Components.Aphid.Tests.Integration/StringTests.cs -text
 Components.Aphid.Tests.Integration/ThisTests.cs -text
+Components.Aphid.Tests.Integration/packages.config -text
 Components.Aphid.VSPackage/AphidAuthoringScope.cs -text
 Components.Aphid.VSPackage/AphidLanguageService.cs -text
 Components.Aphid.VSPackage/AphidPackage.cs -text
@@ -279,6 +280,7 @@ LexerTestGenerator/LexerTestGenerator.csproj.vspscc -text
 LexerTestGenerator/Program.cs -text
 LexerTestGenerator/Properties/AssemblyInfo.cs -text
 LexerTestGenerator/Tokens.cs -text
+LexerTestGenerator/packages.config -text
 MonoBuildScriptGenerator/App.config -text
 MonoBuildScriptGenerator/BuildScriptGenerator.cs -text
 MonoBuildScriptGenerator/MonoBuildScriptGenerator.csproj -text
@@ -350,6 +352,7 @@ PhpVH.Tests.Integration/PhpVHTester.cs -text
 PhpVH.Tests.Integration/Properties/AssemblyInfo.cs -text
 PhpVH.Tests.Integration/TestSettings.cs -text
 PhpVH.Tests.Integration/VulnerabilityScannerTests.cs -text
+PhpVH.Tests.Integration/packages.config -text
 PhpVH.Tests.Unit/CodeCoverage/AnnotatorTests.cs -text
 PhpVH.Tests.Unit/CodeCoverage/CodeCoverageCalculatorTests.cs -text
 PhpVH.Tests.Unit/FormScraperTest.cs -text
@@ -378,6 +381,7 @@ PhpVH.Tests.Unit/PhpVH.Tests.Unit.csproj.vspscc -text
 PhpVH.Tests.Unit/Properties/AssemblyInfo.cs -text
 PhpVH.Tests.Unit/StaticAnalyzerTests.cs -text
 PhpVH.Tests.Unit/UriScraperTest.cs -text
+PhpVH.Tests.Unit/packages.config -text
 PhpVH.Tests/ExternalResourceTest.cs -text
 PhpVH.Tests/HtmlTest.cs -text
 PhpVH.Tests/PhpTest.cs -text
