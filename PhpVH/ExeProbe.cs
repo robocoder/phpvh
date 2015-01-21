@@ -15,16 +15,26 @@ namespace PhpVH
 
         public static void Copy()
         {
-            var source = new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName + "\\" + _probeName;
-            var destination = Environment.GetFolderPath(Environment.SpecialFolder.System) + "\\" + _probeName;
+            var source = Path.Combine(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                _probeName);
 
-            if (!File.Exists(destination))
+
+            var probes = new[] 
+            { 
+                Environment.SpecialFolder.System, 
+                Environment.SpecialFolder.SystemX86 
+            }
+                .Select(Environment.GetFolderPath)
+                .Where(Directory.Exists)
+                .Select(x => Path.Combine(x, _probeName))
+                .Where(x => !File.Exists(x));
+
+            foreach (var p in probes)
             {
                 Trace.WriteLine("Copying probe");
-
-                File.Copy(source, destination, true);
+                File.Copy(source, p);
             }
-
         }
     }
 }
