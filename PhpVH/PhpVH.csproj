@@ -98,6 +98,7 @@
     <Compile Include="InputTag.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="ExeProbe.cs" />
+    <Compile Include="PhpName.cs" />
     <Compile Include="PhpResource.cs" />
     <Compile Include="PhpVersionTester.cs" />
     <Compile Include="Program.cs" />

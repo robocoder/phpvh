@@ -26,7 +26,7 @@ namespace PhpVH.CodeAnalysis
             }
             else if (State == 2 &&
                 token.TokenType == PhpTokenType.Variable &&
-                Php.Superglobals.Contains(token.Lexeme))
+                PhpName.Superglobals.Contains(token.Lexeme))
             {
                 AddExpressionToken();
             }

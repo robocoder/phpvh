@@ -162,7 +162,7 @@ namespace PhpVH
             var includedFiles = new List<string>();
 
             for (int i = 0; i < tokens.Length; i++)
-                if (Php.IncludeFunctions.Contains(tokens[i].Lexeme))
+                if (PhpName.IncludeFunctions.Contains(tokens[i].Lexeme))
                 {
                     int state = 0;
                     string filename = null;
@@ -208,11 +208,11 @@ namespace PhpVH
 
         public static Dictionary<string, List<string>> GetSuperglobalFields(PhpToken[] tokens)
         {
-            var fieldDictionary = Php.Superglobals
+            var fieldDictionary = PhpName.Superglobals
                 .ToDictionary(x => x, x => new List<string>());
 
             for (int i = 0; i < tokens.Length; i++)
-                if (Php.Superglobals.Contains(tokens[i].Lexeme))
+                if (PhpName.Superglobals.Contains(tokens[i].Lexeme))
                 {
                     int state = 0;
                     string fieldName = null;

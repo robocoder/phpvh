@@ -440,6 +440,7 @@ PhpVH/MessageType.cs -text
 PhpVH/MimeTypes.cs -text
 PhpVH/PageFieldTable.cs -text
 PhpVH/Php.cs -text
+PhpVH/PhpName.cs -text
 PhpVH/PhpParser.cs -text
 PhpVH/PhpResource.cs -text
 PhpVH/PhpResources/Annotation.php -text

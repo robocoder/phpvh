@@ -41,11 +41,11 @@ namespace PhpVH
 
             SuperglobalNameCollectionTable = new Dictionary<string, List<string>>()
             {
-                { Php.Get, Get },
-                { Php.Post, Post },
-                { Php.Request, Request },
-                { Php.Files, Files },
-                { Php.Cookie, Cookie },
+                { PhpName.Get, Get },
+                { PhpName.Post, Post },
+                { PhpName.Request, Request },
+                { PhpName.Files, Files },
+                { PhpName.Cookie, Cookie },
             };
         }
 

@@ -12,7 +12,7 @@ namespace PhpVH
     {
         public static Dictionary<string, List<string>> GetSuperGlobalFieldsFromText(string text)
         {
-            var r = "(" + Php.Superglobals
+            var r = "(" + PhpName.Superglobals
                 .Select(x => "(" + Regex.Escape(x) + ")")
                 .Aggregate((x, y) => x + "|" + y) +
                 @")\[(" + Php.ValidNameRegex + @")\]";

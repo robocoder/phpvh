@@ -18,10 +18,10 @@ namespace PhpVH.StaticAnalysis
             return base.IsCallInsecure(call) && call.ParamTokens
                 .Any(x => (x.TokenType == PhpTokenType.String || x.TokenType == PhpTokenType.HereDocString) &&
                     x.Lexeme.ToLower().Contains("location:") &&
-                    (Php.Superglobals
+                    (PhpName.Superglobals
                         .Any(y => x.Lexeme.Contains(y)) ||
                     call.ParamTokens
-                        .Any(y => y.TokenType == PhpTokenType.Variable && Php.Superglobals
+                        .Any(y => y.TokenType == PhpTokenType.Variable && PhpName.Superglobals
                             .Any(z => y.Lexeme.Contains(z)))));
         }
 

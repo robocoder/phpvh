@@ -139,7 +139,7 @@ namespace PhpVH
 
         public static string PatchSuperGlobalConcat(string Code)
         {
-            var g = string.Join("|", Php.SuperGlobalNames);
+            var g = string.Join("|", PhpName.SuperGlobalNames);
             var r = @"(\$_(" + g + @"))\s*\+\s*(\$_(" + g + @"))\s*;";
             var matches = Regex.Matches(Code, r).OfType<Match>().Reverse();
             

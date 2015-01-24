@@ -35,7 +35,7 @@ namespace PhpVH
                 Pages.Add(page);
             }
 
-            foreach (var superglobal in Php.Superglobals)
+            foreach (var superglobal in PhpName.Superglobals)
             {
                 var fields = page.SuperglobalNameCollectionTable[superglobal];
                 var traceFields = Trace.Calls

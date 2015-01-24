@@ -11,7 +11,7 @@ namespace PhpVH
     {
         public static IEnumerable<TracedFunctionCall> Superglobals(this IEnumerable<TracedFunctionCall> Calls)
         {
-            return Calls.Where(x => Php.Superglobals.Contains(x.Name));
+            return Calls.Where(x => PhpName.Superglobals.Contains(x.Name));
         }
 
         

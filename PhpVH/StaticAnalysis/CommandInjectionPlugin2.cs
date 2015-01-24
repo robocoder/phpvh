@@ -18,7 +18,7 @@ namespace PhpVH.StaticAnalysis
             return tokens
                 .Where(x =>
                     x.TokenType == PhpTokenType.BacktickString &&
-                    Php.Superglobals
+                    PhpName.Superglobals
                         .Any(y => x.Lexeme.Contains(y)))
                 .Select(x => CreateAlert(code, x))
                 .ToArray();

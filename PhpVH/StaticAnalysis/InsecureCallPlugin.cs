@@ -15,11 +15,11 @@ namespace PhpVH.StaticAnalysis
         {
             return 
                 call.ParamTokens
-                    .Any(y => y.TokenType == PhpTokenType.Variable && Php.Superglobals
+                    .Any(y => y.TokenType == PhpTokenType.Variable && PhpName.Superglobals
                         .Any(z => z == y.Lexeme)) ||
                 call.ParamTokens
                     .Any(y => (y.TokenType == PhpTokenType.String || y.TokenType == PhpTokenType.HereDocString) &&
-                        Php.Superglobals.Any(z => y.Lexeme.Contains(z)));
+                        PhpName.Superglobals.Any(z => y.Lexeme.Contains(z)));
         }
 
         protected virtual string[] GetSanitizationFunctions()
