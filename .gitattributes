@@ -439,6 +439,7 @@ PhpVH/MessageDumper.cs -text
 PhpVH/MessageType.cs -text
 PhpVH/MimeTypes.cs -text
 PhpVH/PageFieldTable.cs -text
+PhpVH/PatchHelper.cs -text
 PhpVH/Php.cs -text
 PhpVH/PhpName.cs -text
 PhpVH/PhpParser.cs -text
@@ -451,7 +452,6 @@ PhpVH/PhpResources/VersionProbe.php -text
 PhpVH/PhpVH.csproj -text
 PhpVH/PhpVH.csproj.vspscc -text
 PhpVH/PhpVersionTester.cs -text
-PhpVH/PreloadHelper.cs -text
 PhpVH/Program.cs -text
 PhpVH/Properties/AssemblyInfo.cs -text
 PhpVH/ReportFile.cs -text

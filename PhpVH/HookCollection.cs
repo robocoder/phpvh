@@ -151,7 +151,7 @@ namespace PhpVH
                 }
 
                 if (!Program.Config.HookSuperglobals)
-                    php = PreloadHelper.Patch(php);
+                    php = PatchHelper.Patch(php);
 
                 foreach (Hook h in this)
                     h.Set(ref php);

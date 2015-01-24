@@ -171,7 +171,7 @@
     <Compile Include="ScanMetrics.cs" />
     <Compile Include="StaticAnalyzer.cs" />
     <Compile Include="StringParser.cs" />
-    <Compile Include="PreloadHelper.cs" />
+    <Compile Include="PatchHelper.cs" />
     <Compile Include="TraceTable.cs" />
     <Compile Include="ScannerCli.cs" />
     <Compile Include="ScanAlert.cs" />

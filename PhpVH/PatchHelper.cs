@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace PhpVH
 {
-    public static class PreloadHelper
+    public static class PatchHelper
     {
         public static string PatchForeachLoops(string Code)
         {
