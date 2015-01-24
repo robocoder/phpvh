@@ -451,7 +451,7 @@ namespace PhpVH
             return config;
         }
 
-        public static ScanConfig Create(string[] args)
+        public static ScanConfig Parse(string[] args)
         {
             var config = new ScanConfig();
 
@@ -461,11 +461,18 @@ namespace PhpVH
             {
                 if (args[i] == "-s")
                 {
+                    if (args.Length == i + 1)
+                    {
+                        ScannerCli.DisplayCriticalMessageAndExit("-s argument expects value");
+                    }
+
                     config.Server = args[i + 1];
                     i++;
 
                     foreach (var a in config.ScanPlugins)
+                    {
                         a.Server = config.Server;
+                    }
                 }
                 else if (args[i] == "-static")
                 {
@@ -476,15 +483,22 @@ namespace PhpVH
                     int timeout = 0;
                     if (args.Length == i + 1 ||
                         !int.TryParse(args[i + 1], out timeout))
-                        ScannerCli.DisplayCriticalMessageAndExit("Error parsing timeout");
+                    {
+                        ScannerCli.DisplayCriticalMessageAndExit("-t argument expects number value");
+                    }
+
                     i++;
                     config.Timeout = timeout;
                 }
                 else if (args[i] == "-p")
                 {
-                    int port;
-                    if (!int.TryParse(args[i + 1], out port))
-                        ScannerCli.DisplayCriticalMessageAndExit("Error parsing port");
+                    int port = 0;
+                    if (args.Length == i + 1 ||
+                        !int.TryParse(args[i + 1], out port))
+                    {
+                        ScannerCli.DisplayCriticalMessageAndExit("-p argument expects number value");
+                    }
+
                     i++;
                     config.Port = port;
                 }
@@ -505,9 +519,13 @@ namespace PhpVH
                     config.DiscoveryReport = true;
                 }
                 else if (args[i] == "-c")
+                {
                     config.CodeCoverageReport = 1;
+                }
                 else if (args[i] == "-c2")
+                {
                     config.CodeCoverageReport = 2;
+                }
                 else if (args[i] == "-dump")
                 {
                     config.DumpMessages = true;
@@ -525,7 +543,9 @@ namespace PhpVH
                     config.TestMode = true;
                 }
                 else if (args[i] == "-r")
+                {
                     config.Repair = true;
+                }
                 //else if (args[i] == "-h")
                 //    config.HookSuperglobals = true;
                 else if (args[i] == "-l")
@@ -534,6 +554,11 @@ namespace PhpVH
                 }
                 else if (args[i] == "-m")
                 {
+                    if (args.Length == i + 1)
+                    {
+                        ScannerCli.DisplayCriticalMessageAndExit("-m argument expects value");
+                    }
+
                     var modes = args[i + 1];
 
                     i++;

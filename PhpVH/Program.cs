@@ -89,7 +89,7 @@ namespace PhpVH
                 Exit();
             }
 
-            Config = ScanConfig.Create(args);
+            Config = ScanConfig.Parse(args);
 
             if (Config.TestMode)
             {
