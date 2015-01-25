@@ -141,5 +141,40 @@ namespace PhpVH
                 }
             }
         }
+
+        public static Hook[] GetDefaults()
+        {
+            return new[]
+            {
+                new Hook(PhpName.Eval, 1),
+
+                new Hook(PhpName.System, 1),
+                new Hook(PhpName.System, 2),
+                    
+                new Hook(PhpName.Exec, 1),
+                new Hook(PhpName.Exec, 2),
+                new Hook(PhpName.Exec, 3),
+
+                new Hook(PhpName.ShellExec, 1),
+
+                new Hook(PhpName.PassThru, 1),
+                new Hook(PhpName.PassThru, 2),
+                    
+                new Hook(PhpName.MoveUploadedFile, 2),
+
+                new Hook(PhpName.Files, 1, DelimiterOptions.Brackets),
+            };
+        }
+
+        public static Hook[] GetSuperglobals()
+        {
+            return new[]
+            {
+                new Hook(PhpName.Get, 1, DelimiterOptions.Brackets),
+                new Hook(PhpName.Post, 1, DelimiterOptions.Brackets),
+                new Hook(PhpName.Request, 1, DelimiterOptions.Brackets),
+                new Hook(PhpName.Cookie, 1, DelimiterOptions.Brackets),
+            };
+        }
     }
 }

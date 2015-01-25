@@ -180,40 +180,16 @@ namespace PhpVH
                     ScanMetrics.Default.Annotator.AnnotationFile = new FileInfo(Config.WebRoot + "\\Annotation.txt");
 
                     #region Hooks
-                    var hooks2 = new HookCollection()
-                    {
-                        new Hook("eval", 1),
-
-                        new Hook("system", 1),
-                        new Hook("system", 2),
-                    
-                        new Hook("exec", 1),
-                        new Hook("exec", 2),
-                        new Hook("exec", 3),
-
-                        new Hook("shell_exec", 1),
-
-                        new Hook("passthru", 1),
-                        new Hook("passthru", 2),
-                    
-                        new Hook("move_uploaded_file", 2),
-
-                        new Hook("$_FILES", 1, DelimiterOptions.Brackets),
-                    };
-
+                    var hooks2 = new HookCollection(Hook.GetDefaults());
                     var sqlPlugin = new SqlScanPlugin(null);
                     sqlPlugin.Initialize();
                     hooks2.AddRange(sqlPlugin.Config.Functions.ToHooks());
                     #endregion
 
                     if (Config.HookSuperglobals)
-                        hooks2.AddRange(new[]
                     {
-                        new Hook("$_GET", 1, DelimiterOptions.Brackets),
-                        new Hook("$_POST", 1, DelimiterOptions.Brackets),
-                        new Hook("$_REQUEST", 1, DelimiterOptions.Brackets),
-                        new Hook("$_COOKIE", 1, DelimiterOptions.Brackets),
-                    });
+                        hooks2.AddRange(Hook.GetSuperglobals());
+                    }
 
                     if (_scan)
                     {

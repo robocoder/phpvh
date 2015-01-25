@@ -120,5 +120,12 @@ namespace PhpVH
             "uksort",
             "usort"
 	    };
+
+        public const string Eval = "eval",
+            System = "system",
+            Exec = "exec",
+            ShellExec = "shell_exec",
+            PassThru = "passthru",
+            MoveUploadedFile = "move_uploaded_file";
     }
 }

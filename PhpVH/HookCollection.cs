@@ -225,5 +225,15 @@ namespace PhpVH
             //foreach (DirectoryInfo d in Directory.GetDirectories())
             //    Unset(d);
         }
+
+        public HookCollection()
+        {
+        }
+
+        public HookCollection(IEnumerable<Hook> hooks)
+            : base(hooks)
+        {
+            
+        }
     }
 }
