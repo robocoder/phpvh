@@ -9,12 +9,12 @@ namespace PhpVH.StaticAnalysis
     {
         protected override IEnumerable<string> GetFunctions()
         {
-            return new[] { "eval" };
+            return new[] { PhpName.Eval };
         }
 
         protected override string[] GetSanitizationFunctions()
         {
-            return new[] { "htmlentities" };
+            return new[] { PhpName.HtmlEntities };
         }
 
         protected override string Name

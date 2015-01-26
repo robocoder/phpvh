@@ -341,17 +341,11 @@ namespace PhpVH
             };
 
             var traceTable = new TraceTable();
-
             var report = new StringBuilder();
-
             var coverageReport = new StringBuilder();
-
             var map = new ApplicationMap();
-
             var alerts = new ScanAlertCollection();
-
             int requestCount = 0;
-
             MessageDumper messageDumper = null;
 
             if (Config.DumpMessages)
@@ -437,9 +431,7 @@ namespace PhpVH
                                         }
 
                                     client.LingerState = new LingerOption(true, 0);
-
                                     HttpResponse resp = null;
-
                                     string req, respString = "";
 
                                     using (var stream = client.GetStream())
@@ -447,11 +439,12 @@ namespace PhpVH
                                         req = plugin.BuildRequest(i, remotePath, trace);
 
                                         if (Config.DumpMessages)
+                                        {
                                             messageDumper.Dump(req, requestCount, MessageType.Request);
+                                        }
 
                                         var stopwatch = new Stopwatch();
                                         stopwatch.Start();
-
                                         stream.WriteString(req);
 
                                         try
@@ -462,11 +455,9 @@ namespace PhpVH
                                                 .Distinct();
 
                                             var discoveredVarCount = sgs.Count();
-
                                             var reader = new HttpResponseReader(stream);
                                             resp = reader.Read();
                                             stopwatch.Stop();
-
                                             respString = resp.CompleteResponse;
 
                                             ScannerCli.DisplayResponse(
@@ -513,12 +504,12 @@ namespace PhpVH
                                     client.Close();
 
                                     if (Config.DumpMessages)
+                                    {
                                         messageDumper.Dump(respString, requestCount, MessageType.Response);
+                                    }
 
                                     requestCount++;
-
                                     traceFile = new FileInfo(TraceFileName);
-
                                     FileTrace newTrace = null;
 
                                     IOHelper.TryAction(() =>
@@ -529,7 +520,10 @@ namespace PhpVH
                                     });
 
                                     if (newTrace == null)
+                                    {
                                         newTrace = new FileTrace();
+                                    }
+
                                     newTrace.Request = req;
                                     newTrace.Response = respString;
                                     newTrace.File = remotePath;
@@ -571,7 +565,6 @@ namespace PhpVH
                                         .ToArray();
 
                                     newTrace.Calls.AddRange(orphanedInputs);
-
                                     trace = newTrace;
                                 }
 
@@ -582,15 +575,23 @@ namespace PhpVH
                                 if (Config.DiscoveryReport)
                                 {
                                     if (!traceTable.ContainsKey(plugin))
+                                    {
                                         traceTable.Add(plugin, new Dictionary<int, Dictionary<string, FileTrace>>());
+                                    }
 
                                     if (!traceTable[plugin].ContainsKey(i))
+                                    {
                                         traceTable[plugin].Add(i, new Dictionary<string, FileTrace>());
+                                    }
 
                                     if (!traceTable[plugin][i].ContainsKey(trace.File))
+                                    {
                                         traceTable[plugin][i].Add(trace.File, trace);
+                                    }
                                     else
+                                    {
                                         traceTable[plugin][i][trace.File] = trace;
+                                    }
                                 }
                             }
                         }
@@ -599,7 +600,6 @@ namespace PhpVH
                     if (Config.CodeCoverageReport > 0 && urlCollectionIndex == 0)
                     {
                         Cli.WriteLine("Calculating code coverage...");
-
                         CodeCoverageTable coverage = null;
 
                         IOHelper.TryAction(() =>
@@ -611,7 +611,6 @@ namespace PhpVH
                         });
 
                         coverage.Plugin = plugin.ToString();
-
                         coverageReport.AppendLine(coverage.ToString() + "\r\n");
                     }
 
@@ -619,23 +618,25 @@ namespace PhpVH
                 }
 
             _reportWriter.Write("Vulnerability Report", report.ToString());
-
             _reportWriter.Write("Input Map Report", map.ToXml(), "xml");
 
-
             if (alerts.Any())
+            {
                 _reportWriter.Write("Vulnerability Report",
                     alerts.ToXml(), "pxml");
+            }
 
             if (Config.DiscoveryReport)
+            {
                 _reportWriter.Write("Scan Overview Report",
                     DiscoveryReport.Create(traceTable));
+            }
 
             if (Config.CodeCoverageReport > 0)
             {
                 _reportWriter.Write("Code Coverage Report", coverageReport.ToString());
-
                 var annotationXml = ScanMetrics.Default.PluginAnnotations.ToXml();
+                
                 var annotationFile = _reportWriter.Write(
                     "Annotation",
                     annotationXml,
@@ -645,6 +646,7 @@ namespace PhpVH
                 var commenter = new CoverageCommenter(ScanMetrics.Default.PluginAnnotations);
                 commenter.LoadTable(annotationFile);                
                 commenter.WriteCommentedFiles(_reportWriter.ReportPath.FullName);
+                
                 _reportWriter.ReportFiles.Add(
                     new ReportFile(
                         "Coverage Comments",

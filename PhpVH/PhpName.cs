@@ -126,6 +126,7 @@ namespace PhpVH
             Exec = "exec",
             ShellExec = "shell_exec",
             PassThru = "passthru",
-            MoveUploadedFile = "move_uploaded_file";
+            MoveUploadedFile = "move_uploaded_file",
+            HtmlEntities = "htmlentities";
     }
 }

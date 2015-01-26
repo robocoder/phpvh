@@ -48,20 +48,17 @@ namespace PhpVH.ScanPlugins
         protected override ScanAlert ScanTraceCore(FileTrace TargetTrace)
         {
             if (TargetTrace.Calls
-                .Where(x => x.Name == "eval" && x.ParameterValues.Any(y => y.Contains("testabc")))
+                .Where(x => x.Name == PhpName.Eval && x.ParameterValues.Any(y => y.Contains("testabc")))
                 .Any())
+            {
                 return CreateAlert(TargetTrace);
+            }
 
             var falsePositiveRegex = new Regex(Config.FalsePositiveRegex);
-
             var Response = falsePositiveRegex.Replace(TargetTrace.Response, "");
-
             var regex = new Regex(Config.MatchRegex);
 
-            if (regex.IsMatch(Response))
-                return CreateAlert(TargetTrace);
-            else
-                return null;
+            return regex.IsMatch(Response) ? CreateAlert(TargetTrace) : null;
         }
 
         public override string ToString()
